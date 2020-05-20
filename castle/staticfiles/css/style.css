@@ -3,12 +3,18 @@
 a {
     color: #794d14;
     text-decoration: none;
+    font-size: 2em;
 }
 
 a:hover {
     color: #9b631b;
 }
 
+hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-width: 0;
+  border-top: 1px solid #E1E1E1; }
 
 
 /*ground*/
@@ -61,7 +67,7 @@ a:hover {
 
 .unnamed-painting.painting-name {
     background: #fff8e4;
-    min-height: 50px;
+    min-height: 60px;
     text-align: center;
     padding: 0 15px;
 }
@@ -85,4 +91,74 @@ a:hover {
 
 .viewed-paintings-list li:hover {
     opacity: .7;
+}
+
+.submit-title {
+    display: none;
+    margin: 15px 0;
+}
+
+.submit-title #submitted-title {
+    font-family: 'Oranienbaum', serif;
+}
+
+.submit-title .buttons {
+    margin: 15px 0;
+}
+
+.submit-title .buttons .submit-button {
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin: 0 10px;
+    width: 80px;
+    cursor: pointer;
+}
+
+.submit-title .buttons .submit {
+    background: #d1ffd1;
+}
+
+.submit-title .buttons .submit:hover {
+    background: #b5e6b5;
+}
+
+.submit-title .buttons .start-over {
+    background: #fddfa5;
+}
+
+.submit-title .buttons .start-over:hover {
+    background: #ffcd6e;
+}
+
+
+/*success*/
+
+.results-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+      box-shadow:
+       inset 0 -3em 3em rgba(0,0,0,0.1),
+             0 0  0 2px rgb(255,255,255),
+             0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.results-modal .image-container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.results-modal .image-container img {
+    width: 100%;
+}
+
+.results-modal .title-text h1 {
+    font-family: 'Oranienbaum', serif;
 }

@@ -8,4 +8,5 @@ urlpatterns = [
     path('balcony_overhead', views.balcony_overhead, name='balcony_overhead'),
     path('painting/<int:id>/', views.painting, name='painting'),
     path('unnamed', views.unnamed, name='unnamed'),
+    path('painting_guess', views.painting_guess, name='painting_guess'),
 ]

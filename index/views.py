@@ -1,6 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
+import json
 
 from .models import *
 
@@ -39,10 +41,33 @@ def painting(request, id):
 def unnamed(request):
     viewed_paintings = Painting.objects.filter(viewed=True)
     correct_name = 'vividarium intervigilium viator'
+    english = 'In the Garden Sleeps a Messenger'
 
     obj = {
         'viewed_paintings': viewed_paintings,
         'correct_name': correct_name,
+        'english': english,
     }
 
     return render(request, 'unnamed.html', obj)
+
+@csrf_exempt
+def painting_guess(request):
+    try:
+        data = json.loads(request.body)
+        guess = data['guess']
+
+        correct_name = 'vividarium intervigilium viator'
+        guess = guess.strip().lower()
+
+        if guess == correct_name:
+            return HttpResponse("correct")
+        else:
+            return HttpResponse("incorrect")
+
+    except Exception as e:
+        print('-------')
+        print("unable to do this for the following reason:")
+        print(e)
+        print('-------')
+
