@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="painting-container">
+
+    <div class="painting">
+        <img src="{{painting.painting.url}}" />
+    </div>
+
+    <hr>
+
+    <div class="painting-info">
+        <div class="painting-name">
+            <h1>{{painting.name}}</h1>
+        </div>
+
+        <div class="painting-translation">
+            <h5>({{painting.translation}})</h5>
+        </div>
+
+        <hr>
+
+        <a href="/">Back</a>
+    </div>
+</div>
+
+{% endblock %}
