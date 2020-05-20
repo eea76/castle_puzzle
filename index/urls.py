@@ -3,5 +3,9 @@ from django.contrib.auth.decorators import login_required
 from django.urls import path
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.ground_floor, name='ground_floor'),
+    path('balcony_front', views.balcony_front, name='balcony_front'),
+    path('balcony_overhead', views.balcony_overhead, name='balcony_overhead'),
+    path('painting/<int:id>/', views.painting, name='painting'),
+    path('unnamed', views.unnamed, name='unnamed'),
 ]

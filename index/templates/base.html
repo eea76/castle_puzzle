@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <title>Page Title</title>
+         <link href="https://fonts.googleapis.com/css2?family=Oranienbaum&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static 'css/normalize.css' %}">
         <link rel="stylesheet" href="{% static 'css/skeleton.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -16,7 +17,10 @@
     </head>
 
     <body>
-        {% block content %}
-        {% endblock %}
+        <div class="section">
+            <div class="container">
+                {% block content %}{% endblock content %}
+            </div>
+        </div>
     </body>
 </html>

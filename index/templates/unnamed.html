@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="painting-container">
+
+    <div class="painting">
+        <img src="{% static 'img/art_gallery/paintings/unnamed.png' %}" />
+    </div>
+
+    <hr>
+
+    <div class="painting-info">
+
+        <div class="painting-translation">
+            <h5>(This painting's title is smudged)</h5>
+        </div>
+
+        <div class="painting-name unnamed-painting">
+            <h1 class="unnamed-painting-title"></h1>
+        </div>
+
+        <div class="viewed-paintings">
+            <ul class="viewed-paintings-list">
+                {% for painting in viewed_paintings %}
+                <li class="viewed-painting">{{painting.name|upper}}</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+
+
+        <hr>
+
+        <a href="/">Back</a>
+    </div>
+</div>
+
+{% endblock %}
