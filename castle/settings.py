@@ -34,8 +34,7 @@ DEBUG = config('debug', cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
-LOGIN_REDIRECT_URL = 'ground_floor'
-LOGOUT_REDIRECT_URL = 'ground_floor'
+
 
 
 # Application definition
@@ -97,6 +96,9 @@ DATABASES = {
     }
 }
 
+LOGIN_REDIRECT_URL = 'ground_floor'
+LOGIN_URL = '/login'
+LOGOUT_REDIRECT_URL = 'ground_floor'
 
 LOGGING = {
     'version': 1,

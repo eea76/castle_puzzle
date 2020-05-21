@@ -13,17 +13,17 @@ def ground_floor(request):
     obj = {}
     return render(request, 'index.html', obj)
 
-
+@login_required
 def balcony_front(request):
     obj = {}
     return render(request, 'balcony_front.html', obj)
 
-
+@login_required
 def balcony_overhead(request):
     obj = {}
     return render(request, 'balcony_overhead.html', obj)
 
-
+@login_required
 def painting(request, id):
     painting = Painting.objects.get(id=id)
     obj = {
@@ -32,7 +32,7 @@ def painting(request, id):
 
     return render(request, 'painting.html', obj)
 
-
+@login_required
 def unnamed(request):
     viewed_paintings = UserPainting.objects.filter(user=request.user)
     viewed_paintings_count = len(viewed_paintings)
