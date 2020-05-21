@@ -124,9 +124,13 @@ def painting_guess(request):
                 'latin': 'Vividarium et Intervigilium et Viator',
                 'image': "https://ultimeciacastle.s3-us-west-2.amazonaws.com/screens/unnamed.jpg",
             }
+
             return HttpResponse(json.dumps(answer))
         else:
-            return HttpResponse("incorrect")
+            answer = {
+                'correct': False
+            }
+            return HttpResponse(json.dumps(answer))
 
     except Exception as e:
         print('-------')
