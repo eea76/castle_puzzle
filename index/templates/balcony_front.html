@@ -6,11 +6,46 @@
 <div class="image-container">
 
     <div class="art-gallery">
-        <img src="{% static 'img/art_gallery/screens/balcony_front.png' %}" />
+        <div id="balcony_front">
+            <map name="balcony_front">
+                <area
+                    href="/painting/10"
+                    shape=poly
+                    coords="75,225, 150,210, 150,310, 60,325">
+
+                <area
+                    href="/painting/13"
+                    shape=poly
+                    coords="1000,110, 1125,100, 1150,250, 1000,250">
+
+                <area
+                    href="/painting/6"
+                    shape=poly
+                    coords="600,375, 675,375, 675,450, 600,450">
+
+                <area
+                    href="/painting/8"
+                    shape=poly
+                    coords="1175,380, 1275,385, 1275,500, 1175,500">
+
+                <area
+                    href="/painting/12"
+                    shape=poly
+                    coords="600,300, 685,300, 680,360, 600,360">
+
+                <area
+                    href="/painting/11"
+                    shape=poly
+                    coords="375,250, 435,280, 435,350, 375,350">
+
+            </map>
+
+            <img src="{% static 'img/art_gallery/screens/balcony_front.png' %}" usemap="#balcony_front">
+        </div>
 
         <hr>
 
-        <a href="/balcony_overhead">Keep Walking</a> <br/>
+        <a href="/balcony_overhead">Keep Walking</a>
         <a href="/">Go Downstairs</a>
     </div>
 

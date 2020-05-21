@@ -1,9 +1,17 @@
 /*global*/
 
+/*.container {
+    width: 1366px;
+    max-width: 1366px;
+}*/
+
+
 a {
     color: #794d14;
     text-decoration: none;
-    font-size: 2em;
+    font-size: 1em;
+    display: inline-block;
+    padding: 0 20px;
 }
 
 a:hover {

@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+    $('map').imageMapResize();
+
     var guesses = 0;
     $('.viewed-painting').on('click', function() {
 
