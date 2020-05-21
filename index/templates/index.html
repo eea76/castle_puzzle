@@ -6,7 +6,52 @@
 <div class="image-container">
 
     <div class="art-gallery">
-        <img src="{% static 'img/art_gallery/screens/ground_final.png' %}" />
+        <div id="ground-floor">
+            <map name="ground-floor">
+                <area
+                    href="/unnamed"
+                    shape=poly
+                    coords="50,200, 160,250, 160,475, 50,500">
+
+                <area
+                    href="/painting/5"
+                    shape=poly
+                    coords="400,400, 475,400, 475,450, 400,450">
+
+                <area
+                    href="/painting/6"
+                    shape=poly
+                    coords="600,375, 675,375, 675,450, 600,450">
+
+                <area
+                    href="/painting/8"
+                    shape=poly
+                    coords="1175,380, 1275,385, 1275,500, 1175,500">
+
+                <area
+                    href="/painting/15"
+                    shape=poly
+                    coords="635,75, 735,80, 735,140, 635,140">
+
+                <area
+                    href="/painting/14"
+                    shape=poly
+                    coords="500,60, 560,60, 560,150, 510,150">
+
+                <area
+                    href="/painting/10"
+                    shape=poly
+                    coords="810,50, 840,50, 840,135, 810,135">
+
+                <area
+                    href="/painting/9"
+                    shape=poly
+                    coords="800,375, 835,375, 835,450, 810,450">
+
+            </map>
+
+            <img src="{% static 'img/art_gallery/screens/ground_final.png' %}" usemap="#ground-floor">
+        </div>
 
         <hr>
 
