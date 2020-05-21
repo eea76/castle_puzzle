@@ -43,7 +43,7 @@ $(document).ready(function() {
 
         if (guesses === 3) {
             var guessedTitle = $('.unnamed-painting-title').text();
-            $('.viewed-paintings-list').slideUp(1000);
+            $('.viewed-paintings').hide();
             $('.submit-title').fadeIn(1000);
             $('#submitted-title').text(guessedTitle);
         }
@@ -68,6 +68,7 @@ $(document).ready(function() {
                 if (response === 'correct') {
                     // $('.painting-container').animate({opacity: 0}, 2000);
                     $('.painting-container').fadeOut(2000);
+                    $('.titles-container').fadeOut(2000);
                     $('.results-modal').fadeIn(4000);
                 } else {
                     alert('sorry that is incorrect');

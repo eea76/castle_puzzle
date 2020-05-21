@@ -54,6 +54,7 @@ area {
     margin: 0 auto;
     text-align: center;
     margin-top: 2em;
+    display: inline-block;
 }
 
 .painting-container img {
@@ -76,6 +77,14 @@ area {
     opacity: .7;
 }
 
+.titles-container {
+    width: 400px;
+    float: right;
+    margin-top: 2em;
+    text-align: center;
+
+}
+
 /*unnamed painting*/
 
 .unnamed-painting.painting-name {
@@ -85,9 +94,6 @@ area {
     padding: 0 15px;
 }
 
-.viewed-paintings {
-    text-align: left;
-}
 
 .viewed-paintings-list {
     list-style-type: none;
@@ -176,4 +182,26 @@ area {
 
 .results-modal .title-text h1 {
     font-family: 'Oranienbaum', serif;
+}
+
+@media (max-width: 1000px) {
+    .titles-container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 882px) {
+    .painting-container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 882px) {
+    .painting-container {
+        width: 100%;
+    }
+
+    .titles-container {
+        width: 100%;
+    }
 }
