@@ -1,5 +1,36 @@
 $(document).ready(function() {
 
+    $('map').imageMapResize();
+
+    $('area').on('click', function(e) {
+        e.preventDefault();
+        var address = $(this).attr('href');
+        var painting = $(this).attr('href').split('/');
+        var paintingId = painting.pop();
+
+        console.log(address);
+        var message = {};
+
+        message.paintingId = paintingId;
+
+
+        $.ajax({
+            type: 'post',
+            data: JSON.stringify(message),
+            url: 'view_painting',
+            success: function(response) {
+                location.href = address;
+            },
+
+            processData: false,
+            contentType: false,
+            async: true
+        });
+
+        return true;
+
+    })
+
     var guesses = 0;
     $('.viewed-painting').on('click', function() {
 

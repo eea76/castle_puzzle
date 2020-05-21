@@ -54,17 +54,19 @@ def unnamed(request):
 
 @csrf_exempt
 def view_painting(request):
+
     try:
         data = json.loads(request.body)
-        painting = data['painting']
+        painting_id = data['paintingId']
 
-        print(painting)
 
-        # if isistance(painting_id, int):
-        #     painting = Painting.objects.get(id=painting_id)
-        #     painting.viewed = True
-        #     print(painting.name)
-        #     painting.save()
+        if painting_id != 'unnamed':
+            painting = Painting.objects.get(id=painting_id)
+            painting.viewed = True
+            print(painting.name)
+            painting.save()
+        else:
+            print('fuck')
 
     except Exception as e:
         print('-------')
