@@ -11,4 +11,5 @@ urlpatterns = [
     path('unnamed', views.unnamed, name='unnamed'),
     path('view_painting', views.view_painting, name='view_painting'),
     path('painting_guess', views.painting_guess, name='painting_guess'),
+    path('reset', views.reset, name='reset'),
 ]

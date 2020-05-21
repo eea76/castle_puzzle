@@ -35,6 +35,7 @@ def painting(request, id):
 
 def unnamed(request):
     viewed_paintings = UserPainting.objects.filter(user=request.user)
+    viewed_paintings_count = len(viewed_paintings)
     correct_name = 'vividarium intervigilium viator'
     english = 'In the Garden Sleeps a Messenger'
     latin = 'Vividarium et Intervigilium et Viator'
@@ -44,6 +45,8 @@ def unnamed(request):
         'correct_name': correct_name,
         'english': english,
         'latin': latin,
+        'viewed_paintings_count': viewed_paintings_count,
+        'finished_painting': finished_painting,
     }
 
     return render(request, 'unnamed.html', obj)
@@ -125,3 +128,10 @@ def painting_guess(request):
         print(e)
         print('-------')
 
+
+def reset(request):
+    viewed_paintings = UserPainting.objects.filter(user=request.user)
+    for view_painting in viewed_paintings:
+        view_painting.delete()
+
+    return redirect('/unnamed')
