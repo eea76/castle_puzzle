@@ -5,9 +5,13 @@
     max-width: 1366px;
 }*/
 
+body {
+    background: #000;
+    color: #d0d0d0;
+}
 
 a {
-    color: #794d14;
+    color: #c47a1a;
     text-decoration: none;
     font-size: 1em;
     display: inline-block;
@@ -22,7 +26,12 @@ hr {
   margin-top: 2rem;
   margin-bottom: 2rem;
   border-width: 0;
-  border-top: 1px solid #E1E1E1; }
+  border-top: 1px solid #E1E1E1;
+}
+
+button {
+    color: #c4c4c4;
+}
 
 
 /*login*/
@@ -80,9 +89,10 @@ area {
     font-family: 'Oranienbaum', serif;
 }
 
-.painting-name h1 {
+.unnamed-painting.painting-name h1 {
     margin-bottom: 0;
     font-size: 2em;
+    color: #000;
 }
 
 .painting-translation {
@@ -139,6 +149,7 @@ area {
 
 .submit-title .buttons {
     margin: 15px 0;
+    color: #000;
 }
 
 .submit-title .buttons .submit-button {
@@ -171,7 +182,10 @@ area {
     margin: 5rem auto 0;
     transition: 200ms all;
     width: 180px;
+}
 
+.reset-button a {
+    color: #c4c4c4;
 }
 
 
@@ -182,7 +196,6 @@ area {
     text-align: center;
     border: 1px solid #bbb;
     border-radius: 4px;
-    color: #555;
     text-transform: uppercase;
     font-size: 11px;
     letter-spacing: .1rem;
@@ -220,6 +233,7 @@ area {
 
 .results-modal .title-text h1 {
     font-family: 'Oranienbaum', serif;
+    color: black;
 }
 
 @media (max-width: 1000px) {
