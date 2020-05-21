@@ -40,11 +40,25 @@
             </div>
         </div>
 
-
-
         <hr>
 
         <button onclick="goBack()">Back to Gallery</button>
+
+        <hr>
+
+        {% if viewed_paintings_count > 0 and viewed_paintings_count < 12 %}
+        <div class="reset-button">
+            <a href="/reset" class="reset">Reset Progress</a>
+            (This will clear all the paintings you've viewed)
+        </div>
+
+        {% elif viewed_paintings_count == 12 %}
+
+        <div class="reset-button">
+            <a href="/reset" class="reset">Reset Progress</a>
+            You've seen all the paintings
+        </div>
+        {% endif %}
     </div>
 </div>
 
