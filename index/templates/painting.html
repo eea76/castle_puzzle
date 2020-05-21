@@ -21,8 +21,14 @@
 
         <hr>
 
-        <a href="/">Back</a>
+        <button onclick="goBack()">Back</button>
     </div>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 {% endblock %}
