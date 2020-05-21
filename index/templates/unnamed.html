@@ -23,13 +23,10 @@
 <div class="titles-container">
     <div class="painting-info">
 
-
-
-
         <div class="viewed-paintings">
             <ul class="viewed-paintings-list">
                 {% for painting in viewed_paintings %}
-                <li class="viewed-painting">{{painting.name|upper}}</li>
+                <li class="viewed-painting">{{painting.painting|upper}}</li>
                 {% endfor %}
             </ul>
         </div>

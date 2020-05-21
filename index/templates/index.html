@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-
+{% if user.is_authenticated %}
 <div class="image-container">
 
     <div class="art-gallery">
@@ -61,6 +61,16 @@
 
 
 </div>
+
+{% else %}
+
+<p class="deck">Hello yes and please login or create an account to play this GAME.</p>
+
+<a href="/login"><h4>Login</h4></a>
+
+<p>Don't have an account? <a href="/signup">Create one here THANKS</a></p>
+
+{% endif %}
 
 
 
