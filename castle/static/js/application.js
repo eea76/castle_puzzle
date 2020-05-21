@@ -2,6 +2,29 @@ $(document).ready(function() {
 
     $('map').imageMapResize();
 
+    $('area').on('click', function() {
+        var painting = $(this).attr('href').split('/');
+        var paintingId = painting.pop();
+
+        var message = {};
+        message.paintingId = paintingId;
+
+        $.ajax({
+            type: 'post',
+            data: JSON.stringify(message),
+            url: 'view_painting',
+            success: function(response) {
+            },
+
+            processData: false,
+            contentType: false,
+            async: true
+        });
+
+        return true;
+
+    })
+
     var guesses = 0;
     $('.viewed-painting').on('click', function() {
 

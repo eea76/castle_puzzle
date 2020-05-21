@@ -51,6 +51,30 @@ def unnamed(request):
 
     return render(request, 'unnamed.html', obj)
 
+
+@csrf_exempt
+def view_painting(request):
+    try:
+        data = json.loads(request.body)
+        painting = data['painting']
+
+        print(painting)
+
+        # if isistance(painting_id, int):
+        #     painting = Painting.objects.get(id=painting_id)
+        #     painting.viewed = True
+        #     print(painting.name)
+        #     painting.save()
+
+    except Exception as e:
+        print('-------')
+        print("unable to do this for the following reason:")
+        print(e)
+        print('-------')
+
+    return HttpResponse("Success")
+
+
 @csrf_exempt
 def painting_guess(request):
     try:
