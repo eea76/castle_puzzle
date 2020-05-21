@@ -41,7 +41,7 @@
 
         <hr>
 
-        <a href="/">Back</a>
+        <button onclick="goBack()">Back</button>
     </div>
 </div>
 
@@ -54,5 +54,11 @@
         <h1>{{english}}</h1>
     </div>
 </div>
+
+<script>
+    function goBack() {
+        window.history.back();
+    }
+</script>
 
 {% endblock %}
