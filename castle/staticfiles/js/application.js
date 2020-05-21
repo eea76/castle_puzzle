@@ -70,7 +70,7 @@ $(document).ready(function() {
                     $('.painting-container').fadeOut(2000);
                     $('.results-modal').fadeIn(4000);
                 } else {
-                    alert('sorry try again or don\'t');
+                    alert('sorry that is incorrect');
                 }
             },
 
