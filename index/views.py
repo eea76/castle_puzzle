@@ -42,11 +42,13 @@ def unnamed(request):
     viewed_paintings = Painting.objects.filter(viewed=True)
     correct_name = 'vividarium intervigilium viator'
     english = 'In the Garden Sleeps a Messenger'
+    latin = 'Vividarium et Intervigilium et Viator'
 
     obj = {
         'viewed_paintings': viewed_paintings,
         'correct_name': correct_name,
         'english': english,
+        'latin': latin,
     }
 
     return render(request, 'unnamed.html', obj)
