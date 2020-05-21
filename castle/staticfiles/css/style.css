@@ -230,16 +230,17 @@ area {
 
 @media (max-width: 882px) {
     .painting-container {
-        width: 300px;
-    }
-}
-
-@media (max-width: 882px) {
-    .painting-container {
         width: 100%;
     }
 
     .titles-container {
         width: 100%;
+    }
+}
+
+@media (max-width: 612px) {
+    .login-container {
+        width: 100%;
+        font-size: 20px;
     }
 }
