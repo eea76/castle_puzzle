@@ -25,6 +25,16 @@ hr {
   border-top: 1px solid #E1E1E1; }
 
 
+/*login*/
+.login-container {
+    width: 500px;
+    margin: 5rem auto;
+}
+
+.login-container a {
+    padding: 0;
+}
+
 /*ground*/
 
 .image-container {
@@ -151,6 +161,29 @@ area {
 .submit-title .buttons .start-over:hover {
     background: #ffcd6e;
 }
+
+.reset-button {
+    margin: 5rem auto 0;
+    transition: 200ms all;
+    width: 180px;
+
+}
+
+
+.reset-button .reset {
+    margin: 0 auto;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    color: #555;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: .1rem;
+    font-weight: 600;
+}
+
 
 
 /*success*/
