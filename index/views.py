@@ -80,7 +80,6 @@ def view_painting(request):
         data = json.loads(request.body)
         painting_id = data['paintingId']
 
-
         if painting_id != 'unnamed':
             painting = Painting.objects.get(id=painting_id)
             user_painting = UserPainting.objects.get_or_create(
@@ -88,9 +87,10 @@ def view_painting(request):
                 painting=painting,
                 viewed=True)
 
-            user_painting.save()
+            print(user_painting)
+            user_painting[0].save()
         else:
-            print('fuck')
+            redirect('/unnamed')
 
     except Exception as e:
         print('-------')
