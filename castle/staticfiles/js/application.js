@@ -43,8 +43,8 @@ $(document).ready(function() {
 
         if (guesses === 3) {
             var guessedTitle = $('.unnamed-painting-title').text();
-            $('.viewed-paintings-list').slideUp(2000);
-            $('.submit-title').fadeIn(3000);
+            $('.viewed-paintings-list').slideUp(1000);
+            $('.submit-title').fadeIn(1000);
             $('#submitted-title').text(guessedTitle);
         }
     });

@@ -67,6 +67,7 @@ area {
 
 .painting-name h1 {
     margin-bottom: 0;
+    font-size: 2em;
 }
 
 .painting-translation {
@@ -79,7 +80,7 @@ area {
 
 .unnamed-painting.painting-name {
     background: #fff8e4;
-    min-height: 60px;
+    min-height: 36px;
     text-align: center;
     padding: 0 15px;
 }
@@ -111,6 +112,7 @@ area {
 }
 
 .submit-title #submitted-title {
+    font-size: 1.5em;
     font-family: 'Oranienbaum', serif;
 }
 
@@ -123,7 +125,8 @@ area {
     padding: 3px 15px;
     border-radius: 5px;
     margin: 0 10px;
-    width: 80px;
+    width: 140px;
+    font-size: 2em;
     cursor: pointer;
 }
 
