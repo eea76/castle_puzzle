@@ -41,6 +41,10 @@ hr {
     width: 100%;
 }
 
+area {
+    cursor: default;
+}
+
 
 
 /*paintings*/
