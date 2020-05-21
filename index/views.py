@@ -46,7 +46,6 @@ def unnamed(request):
         'english': english,
         'latin': latin,
         'viewed_paintings_count': viewed_paintings_count,
-        'finished_painting': finished_painting,
     }
 
     return render(request, 'unnamed.html', obj)
