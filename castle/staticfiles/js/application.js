@@ -1,19 +1,6 @@
 $(document).ready(function() {
 
-    $('map').imageMapResize();
-
-    $('area').on('click', function(e) {
-        e.preventDefault();
-        var address = $(this).attr('href');
-        var painting = $(this).attr('href').split('/');
-        var paintingId = painting.pop();
-
-        console.log(address);
-        var message = {};
-
-        message.paintingId = paintingId;
-
-
+    function ajaxCall(message, address, url) {
         $.ajax({
             type: 'post',
             data: JSON.stringify(message),
@@ -28,6 +15,22 @@ $(document).ready(function() {
         });
 
         return true;
+    }
+
+    $('map').imageMapResize();
+
+    $('area').on('click', function(e) {
+        e.preventDefault();
+        var address = $(this).attr('href');
+        var painting = $(this).attr('href').split('/');
+        var paintingId = painting.pop();
+
+        console.log(address);
+        var message = {};
+
+        message.paintingId = paintingId;
+
+        ajaxCall(message, address, 'view_painting');
 
     })
 
