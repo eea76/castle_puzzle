@@ -65,8 +65,15 @@ $(document).ready(function() {
             data: JSON.stringify(message),
             url: 'painting_guess',
             success: function(response) {
-                if (response === 'correct') {
-                    // $('.painting-container').animate({opacity: 0}, 2000);
+                response = JSON.parse(response)
+                if (response.correct) {
+
+                    var english = response.english;
+                    var latin = response.latin;
+                    var imageAddress = response.image;
+                    $('.title-text h1').text(english);
+                    $('.title-text h5').text(latin);
+                    $('.results-modal .image-container').find('img').attr('src', imageAddress);
                     $('.painting-container').fadeOut(2000);
                     $('.titles-container').fadeOut(2000);
                     $('.results-modal').fadeIn(4000);

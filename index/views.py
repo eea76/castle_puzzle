@@ -117,7 +117,14 @@ def painting_guess(request):
         new_guess.save()
 
         if guess == correct_name:
-            return HttpResponse("correct")
+            answer = {
+                'correct': True,
+                'correct_name': 'vividarium intervigilium viator',
+                'english': 'In the Garden Sleeps a Messenger',
+                'latin': 'Vividarium et Intervigilium et Viator',
+                'image': "https://ultimeciacastle.s3-us-west-2.amazonaws.com/screens/unnamed.jpg",
+            }
+            return HttpResponse(json.dumps(answer))
         else:
             return HttpResponse("incorrect")
 
