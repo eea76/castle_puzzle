@@ -1,0 +1,625 @@
+        <title>Adventure</title>
+        <style>
+
+            body {
+                background-color: #CCCCD0;
+            }
+
+            #start {
+                background-color: #AAAAB2;
+                padding-top: 5px;
+                border-radius: 25px;
+            }
+
+            .hidden {
+                display: none;
+            }
+
+            h1 {
+                font-family: Avenir, Helvetica, sans-serif;
+                margin-right: 35px;
+                padding: 10px;
+                color: #2A2A32;
+                font-size: 1.5em;
+            }
+
+            ul {
+                margin-right: 220px;
+                padding-bottom: 15px;
+                margin-top: -15px;
+            }
+
+            li {
+                padding-bottom: 3px;
+                list-style: square;
+            }
+
+            a {
+                text-decoration: none;
+                color: #3B3B46;
+                font-size: 1.25em;
+            }
+
+            a:hover {
+                color: black;
+            }
+
+            .result {}
+
+            #rightalign {
+                text-align: right;
+            }
+
+            #center {
+                text-align: center;
+            }
+
+            #simulation {
+                background-color: black;
+                color: #00FF00;
+                font-family: Courier, serif;
+            }
+
+            input[name="address"] {
+                width: 350px;
+                height: 35px;
+                font-size: 1.25em;
+                border-radius: 5px;
+            }
+
+
+        </style>
+
+
+        <div id="start">
+            <h1 class="question">You enter a dark room with four doors. You will choose a door.</h1>
+            <ul>
+                <li><a data-next="door1" href="#">Door 1</a></li>
+                <li><a data-next="door2" href="#">Door 2</a></li>
+                <li><a data-next="door3" href="#">Door 3</a></li>
+                <li><a data-next="door4" href="#">Door 4</a></li>
+            </ul>
+        </div>
+
+        <!-- DOOR 1 PATH -->
+
+        <div id="door1" class="hidden children">
+            <h1 class="question">There's a giant bear masturbating in here. What do you do?</h1>
+            <ul>
+                <li><a data-next='join' href="#">Join.</a></li>
+                <li><a data-next='bosho' href="#">Scream at the bear, "I'M CALLING BOSHO." (BOSHO stands for 'Bears Often Stay Home Often.' It's a news organization specializing in the habits of grizzly bears framed in a quirky yet sensible context.)</a></li>
+                <li><a data-next='bubble_toss' href="#">Dance the bubble toss.</a></li>
+            </ul>
+        </div>
+
+        <!-- DOOR 2 PATH -->
+
+        <div id="door2" class="hidden children">
+            <h1 class="question">You walk into a living LSD trip.</h1>
+            <ul>
+                <li><a data-next='delivers' href="#">I Am The One Who Speaks And Delivers.</a></li>
+                <li><a data-next='prettyyellow' href="#">Yellow was pretty once.</a></li>
+                <li><a data-next='silentsongs' href="#">Yes, the silent songs ARE louder than the screaming friends!</a></li>
+            </ul>
+        </div>
+
+        <div id="prettyyellow" class="hidden children">
+            <h1 class="question">The sky goes all the way over there. Can you see it?</h1>
+            <ul>
+                <li><a data-next='seesky' href="#">Yes.</a></li>
+                <li><a data-next='worldshield' href="#">The sky is like the world's strongest shield.</a></li>
+            </ul>
+        </div>
+
+        <div id="silentsongs" class="hidden children">
+            <h1 class="question">The air gives way to more air. You breathe it in. Are you hot or cold?</h1>
+            <ul>
+                <li><a data-next='breathehot' href="#">Hot.</a></li>
+                <li><a data-next='breathecold' href="#">Cold.</a></li>
+            </ul>
+        </div>
+
+        <!-- DOOR 3 PATH -->
+
+        <div id="door3" class="hidden children">
+            <h1 class="question">You see a man attempting to put himself inside his Dropbox folder.</h1>
+            <ul>
+                <li><a data-next='delete' href="#">Delete his Dropbox folder.</a></li>
+                <li><a data-next='create' href="#">Create a new Dropbox account so that his requires an additional login.</a></li>
+                <li><a data-next='syncit' href="#">Blow apart his world by syncing your own Dropbox folder.</a></li>
+            </ul>
+        </div>
+
+        <div id="delete" class="hidden children">
+            <h1 class="question">The man becomes enraged and reformats himself. Dropbox, inc. is contacted and they begin legal proceedings that investigate the circumstances of the situation. How do you plead?</h1>
+            <ul>
+                <li><a data-next='guilty' href="#">Guilty.</a></li>
+                <li><a data-next='notguilty' href="#">Not guilty, but secretly pleased the reformat took place.</a></li>
+                <li><a data-next='visiblyupset' href="#">Not guilty, and visibly upset that you were not able to sync your own public folder before the loss of data occurred.</a></li>
+            </ul>
+        </div>
+
+        <div id="create" class="hidden children">
+            <h1 class="question">You need to create a password. What is your password?</h1>
+            <ul>
+                <li><a data-next='password' href="#">"password"</a></li>
+                <li><a data-next='password1234' href="#">"password1234"</a></li>
+            </ul>
+        </div>
+
+        <div id="syncit" class="hidden children">
+            <h1 class="question">Your internet connection is total fucking dogshit. This is going to take awhile. Do you have all the time in the world?</h1>
+            <ul>
+                <li><a data-next='havetime' href="#">Yes.</a></li>
+                <li><a data-next='donothavetime' href="#">No.</a></li>
+            </ul>
+        </div>
+
+        <div id="havetime" class="hidden children">
+            <h1 class="question">Ok get yourself a big ol' cup of coffee and drink it real fast so you scald your tongue. Do you scream or do you not scream?</h1>
+            <ul>
+                <li><a data-next='scream' href="#">Scream.</a></li>
+                <li><a data-next='donotscream' href="#">Do not scream.</a></li>
+            </ul>
+        </div>
+
+        <div id="donothavetime" class="hidden children">
+            <h1 class="question">Then get the fuck out. GET OUT.</h1>
+            <ul>
+                <li><a data-next='run' href="#">Run!</a></li>
+                <li><a data-next='walk' href="#">Walk.</a></li>
+            </ul>
+        </div>
+
+
+        <!-- DOOR 4 PATH -->
+
+        <div id="door4" class="hidden children">
+            <h1 class="question">You've entered an empty room. Nothing to see here. What do you want to do now?</h1>
+            <ul>
+                <li><a data-next='turnaround' href="#">Turn around.</a></li>
+                <li><a data-next='continuewalking' href="#">Continue walking.</a></li>
+                <li><a data-next='eatsandwich' href="#">Eat your old sandwich.</a></li>
+            </ul>
+        </div>
+
+        <div id="continuewalking" class="hidden children">
+            <h1 class="question">You find a big book on the floor.</h1>
+            <ul>
+                <li><a data-next='openit' href="#">Open it up.</a></li>
+                <li><a data-next='kickit' href="#">Kick it out of the way.</a></li>
+                <li><a data-next='huffglue' href="#">Huff glue.</a></li>
+            </ul>
+        </div>
+
+        <div id="openit" class="hidden children">
+            <h1 class="question">The book is large. Much is written. Nothing is said.</h1>
+            <ul>
+                <li><a data-next='laugh' href="#">Laugh.</a></li>
+                <li><a data-next='cry' href="#">Cry.</a></li>
+            </ul>
+        </div>
+
+        <div id="laugh" class="hidden children">
+            <h1 class="question">You win. Yep.<br>Yep that's it.<br>Game over.<br>You win the princess. She is your property. Laughing means you win.<br>Go home and enjoy your property.<br><br>No wait, one more thing.</h1>
+            <ul>
+                <li><a data-next='gohome' href="#">Go home.</a></li>
+                <li><a data-next='readthebook' href="#">Read the book.</a></li>
+            </ul>
+        </div>
+
+        <div id="cry" class="hidden children">
+            <h1 class="question">Stop crying. You chose this path.</h1>
+            <ul>
+                <li><a data-next='stopcrying' href="#">Stop.</a></li>
+                <li><a data-next='ignore' href="#">Ignore command.</a></li>
+            </ul>
+        </div>
+
+        <div id="stopcrying" class="hidden children">
+            <h1 class="question">You angrily become bored with the situation. Your brain melts from angry boredom. This is a crisis.</h1>
+            <ul>
+                <li><a data-next='callcrisis' href="#">Call the crisis hotline. 362/24/7.</a></li>
+                <li><a data-next='deplete' href="#">Deplete energy reserves.</a></li>
+            </ul>
+        </div>
+
+        <div id="callcrisis" class="hidden children">
+            <h1 class="question">"Thank you for calling the Crisis Hotline. Lotsa things goin' on today. Jimmy Chuckle-Truckle here. Where EXACTLY are you located?"</h1>
+            <ul>
+                <li><a data-next='doornumber4' href="#">Door Number 4.</a></li>
+                <li><a data-next='dontknow' href="#">I don't know.</a></li>
+                <li><a data-next='venom' href="#">Trapped within the venom of the lustful.</a></li>
+            </ul>
+        </div>
+
+        <div id="ignore" class="hidden children">
+            <h1 class="question">You've got a lot of guts ignoring the command. Now what do you want to do?</h1>
+            <ul>
+                <li><a data-next='cryage' href="#">Continue the cryage that you are insisting upon yourself.</a></li>
+                <li><a data-next='spacecannister' href="#">Blame the Space Cannister for all your problems.</a></li>
+            </ul>
+        </div>
+
+        <div id="kickit" class="hidden children">
+            <h1 class="question">The book sails across the room. It connects with the face of Bob Rob Plip, the manager of Door 4.</h1>
+            <ul>
+                <li><a data-next='apologize' href="#">Apologize.</a></li>
+                <li><a data-next='apologizealot' href="#">Apologize A LOT.</a></li>
+                <li><a data-next='dance' href="#">Do a little dance.</a></li>
+            </ul>
+        </div>
+
+        <div id="apologize" class="hidden children">
+            <h1 class="question">"Iffa jigga weeba heeee haaaaaa?"<br>......<br>It's clear this fuckjack doesn't speak your language.</h1>
+            <ul>
+                <li><a data-next='sodoadance' href="#">So do. A little. DANCE!</a></li>
+                <li><a data-next='gesticulate' href="#">Gesticulate submissively to communicate contrition.</a></li>
+            </ul>
+        </div>
+
+        <div id="dance" class="hidden children">
+            <h1 class="question">What dance are you going to do?</h1>
+            <ul>
+                <li><a data-next='plaintive' href="#">The plaintive wail.</a></li>
+                <li><a data-next='bubbletoss' href="#">The bubble toss.</a></li>
+                <li><a data-next='racist' href="#">The racist behavior.</a></li>
+            </ul>
+        </div>
+
+        <div id="racist" class="hidden children">
+            <h1 class="question">You dance the racist behavior. It is an instant hit. Congratulations!<br>You win.<br>You win everything.<br>Bob Rob Plip takes off his belt and shuffles over to you, handing you his belt. It contains a gem. The gem is:</h1>
+            <ul>
+                <li><a data-next='white' href="#">White.</a></li>
+                <li><a data-next='red' href="#">Red.</a></li>
+            </ul>
+        </div>
+
+        <div id="huffglue" class="hidden children">
+            <h1 class="question">The glue enters your nose and you are reminded of why you began huffing glue all those years ago in the elementary school bathroom.<br><br>It's not your fault nobody taught you how to pee standing up.</h1>
+            <ul>
+                <li><a data-next='continuehuffing' href="#">Continue huffing.</a></li>
+                <li><a data-next='nooverdo' href="#">One hit is enough. Let's not overdo it.</a></li>
+            </ul>
+        </div>
+
+        <div id="nooverdo" class="hidden children">
+            <h1 class="question">The euphoria fades pleasantly. Just a little bump is all you needed. Good call.<br><br>You should put the glue away now. What do you do next?</h1>
+            <ul>
+                <li><a data-next='huffmore' href="#">Huff more glue.</a></li>
+                <li><a data-next='avoidbook' href="#">Avoid the book and continue thinking uselessly about your purpose.</a></li>
+            </ul>
+        </div>
+
+        <div id="avoidbook" class="hidden children">
+            <h1 class="question">Good. You hate books anyway and everything they represent. Why are you here?</h1>
+            <ul>
+                <li><a data-next='seekingmore' href="#">Seeking more glue to huff furiously.</a></li>
+                <li><a data-next='yousize' href="#">Just trying to find the you-sized hole in the world's mysterious chaos.</a></li>
+            </ul>
+        </div>
+
+        <div id="yousize" class="hidden children">
+            <h1 class="question">So is everyone. Even the designer of this psychopathic Door scenario. He (OR SHE) just wanted to create something that resonates with strangers. That's easier said than done. Congratulations. You understand. The end. You win. The end.<br><br>Please enter your address so your Certificate of Understanding can be mailed to you.</h1>
+
+                <input type="text" name="address" placeholder="Please enter your real address"><br>
+
+            <button id="submittomainframe">Submit</button>
+        </div>
+
+        <div id="eatsandwich" class="hidden children">
+            <h1 class="question">The sandwich sighs. You interpret the sandwich's sigh as a preference for:</h1>
+            <ul>
+                <li><a data-next='beingeaten' href="#">Being eaten.</a></li>
+                <li><a data-next='notbeingeaten' href="#">Not being eaten.</a></li>
+                <li><a data-next='content' href="#">Being content with itself.</a></li>
+            </ul>
+        </div>
+
+        <div id="content" class="hidden children">
+            <h1 class="question">Nice! Contentment is a sacred state of being. Make yourself a drink. What'll it be tonight?</h1>
+            <ul>
+                <li><a data-next='mojito' href="#">A grand mojito.</a></li>
+                <li><a data-next='whisket' href="#">A blisket whisket.</a></li>
+                <li><a data-next='stranger' href="#">A dark-skinned stranger.</a></li>
+                <li><a data-next='tears' href="#">A plastic vial of subjugated children's tears.</a></li>
+                <li><a data-next='water' href="#">Just a glass of water, thanks.</a></li>
+            </ul>
+        </div>
+
+        <div id="mojito" class="hidden children">
+            <h1 class="question">Grand mojitos are banned in all countries and in all states. Of consciousness. Drink it NOW or pour it OUT before you are caught!!!</h1>
+            <ul>
+                <li><a data-next='guzzle' href="#">Guzzle it.</a></li>
+                <li><a data-next='pour' href="#">Pour it out.</a></li>
+            </ul>
+        </div>
+
+        <div id="whisket" class="hidden children">
+            <h1 class="question">This imaginary drink comes to life before your eyes. It is a beautiful concoction but has no inherent value because there is no taste. It doesn't even exist. What are you on???</h1>
+            <ul>
+                <li><a data-next='drugs' href="#">Drugs.</a></li>
+                <li><a data-next='life' href="#">I'm high on life lol.</a></li>
+            </ul>
+        </div>
+
+        <div id="stranger" class="hidden children">
+            <h1 class="question">Careful with this one....</h1>
+            <ul>
+                <li><a data-next='drinkit' href="#">Drink it.</a></li>
+                <li><a data-next='think' href="#">Think better of your racist choices.</a></li>
+            </ul>
+        </div>
+
+        <div id="drinkit" class="hidden children">
+            <h1 class="question">GLUG<pre>&#9;GLUG<br>&#9;&#9;GLUG<br>&#9;&#9;&#9;GLUG<br>&#9;&#9;&#9;&#9;GLUG<br>&#9;&#9;&#9;GLUG<br>&#9;&#9;GLUG<br>&#9;GLUG<br></pre>GLUG<br>
+                Drinking the dark-skinned stranger brings you a self-assured sense of superiority and a persistent conscience that is ignored without difficulty.<br>Its benefits include social privilege and access to more dark-skinned strangers.</h1>
+            <ul>
+                <li><a data-next='drinkmore' href="#">Drink more.</a></li>
+                <li><a data-next='lotsmore' href="#">Drink a LOT MORE.</a></li>
+            </ul>
+        </div>
+
+        <div id="drinkmore" class="hidden children">
+            <h1 class="question">Okay you can have some more, but be careful, this drink is known to cause feelings of deep shame in its drinkers' grandchildren.</h1>
+            <ul>
+                <li><a data-next='onemore' href="#">Have one more, then turn in for the night.</a></li>
+                <li id="time"><a data-next='slamback' href="#">Slam back another glass and dance your favorite dance (the bubble toss).</a></li>
+            </ul>
+        </div>
+
+        <div id="tears" class="hidden children">
+            <h1 class="question">Yeah you love the taste.</h1>
+            <ul>
+                <li><a data-next='democracy' href="#">Tastes like democracy.</a></li>
+                <li><a data-next='salt' href="#">Tastes like salt.</a></li>
+                <li><a data-next='tastemojito' href="#">Tastes like a grand mojito.</a></li>
+            </ul>
+        </div>
+
+        <div id="salt" class="hidden children">
+            <h1 class="question">Slaves cry salty tears. You have just learned another thing about the world.</h1>
+            <ul>
+                <li><a data-next='levelup' href="#">Sweet! LEVEL UP!</a></li>
+                <li><a data-next='guilt' href="#">The guilt train comes rollin' into the hate station.</a></li>
+            </ul>
+        </div>
+
+        <div id="water" class="hidden children">
+            <h1 class="question">"Just a glass of water, thanks!" you repeat, wondering with sudden panic if you had voiced your request or merely let the request sit unspoken.</h1>
+            <ul>
+                <li><a data-next='waterscream' href="#">"WATER!!!!!!!" you holler, one final time, just to make sure.</a></li>
+            </ul>
+        </div>
+
+        <div id="waterscream" class="hidden children">
+            <h1 class="question">You were heard the FIRST TIME. Water is always a smart choice in the event of confusing options. Do you want ice?</h1>
+            <ul>
+                <li><a data-next='yesice' href="#">Yes.</a></li>
+                <li><a data-next='gimmeice' href="#">GIMME DAT ICE.</a></li>
+            </ul>
+        </div>
+
+        <div id="gimmeice" class="hidden children">
+            <h1 class="question">Fucking what?</h1>
+            <ul>
+                <li><a data-next='gimmelouder' href="#">I SAY GIMME DAT ICE</a></li>
+                <li><a data-next='noice' href="#">Nevermind; no ice.</a></li>
+            </ul>
+        </div>
+
+        <!-- RESULTS -->
+
+        <div class="result">
+            <div id="door1results">
+                <h1 id="join" class="hidden">You are immediately destroyed. Due to the bear's shame. Its family must never know.</h1>
+                <h1 id="bosho" class="hidden">The bear screams back, "Ok, call them! I'm friends with BOSHO administrator Peter Bear." You shrink away in defeat. That didn't go very well at all.</h1>
+                <h1 id="bubble_toss" class="hidden">The bear is mesmerized by your bubble toss skills. So impressed, in fact, that it kills you. The end. You just lost. How does that feel? Don't dance the bubble toss.</h1>
+            </div>
+
+            <div id="door2results">
+                <h1 id="delivers" class="hidden">DON'T WORRY ABOUT THE VOID!</h1>
+                <h1 id="seesky" class="hidden">I<br>CAN<br>SEE<br>IT.</h1>
+                <h1 id="worldshield" class="hidden">Stairs bring me to Point B. They serve no other purpose.<br>You were at point A. You required the use of stairs.<br>For just a moment.<br>Stairs connect the world.<br><pre>    ~haiku</pre></h1>
+                <h1 id="breathehot" class="hidden">You have fallen through the floor into the flames of fire. Sorry about that but you know how it is. Play with fire and you're going to get burned. That's like Fire Class 101. Sorry.<br>No seriously.<br>You're done.<br>The end.</h1>
+                <h1 id="breathecold" class="hidden">We are counting to 99.<br>Red armies of light converge on the edge.</h1>
+            </div>
+
+            <div id="door3results">
+                <h1 id="guilty" class="hidden">You are punched in the face. Sorry, that is the punishment in this land of wonders.</h1>
+                <h1 id="notguilty" class="hidden">Thomas Biggles-Ruptureton, CEO of Whatever Town, notices your secret pleasure and slides a knife into your side and whispers 'yeeeeeeaahhhh' loudly. Don't underestimate Thomas Biggles-Ruptureton.<br><br>This means you have lost.</h1>
+                <h1 id="visiblyupset" class="hidden">The court rules there are insufficient funds left in their account. Thank you for playing and close the door that led you here. There is a draft and the CEO of Whatever Town just caught fucking measles or whatever.</h1>
+                <h1 id="password" class="hidden">Fucking horrible password. The game is lost and God destroys your home, eats your dog.</h1>
+                <h1 id="password1234" class="hidden">Excellent choice. No one will ever guess that. Moving right along. Your Dropbox account successfully prevents the man (his name is Tony Displacable) from uh, doing whatever he wanted to do. You win. Enjoy your victory and the illusion of freedom it gives you. Hahaha just kidding we know all about freedom.</h1>
+                <h1 id="scream" class="hidden">Yeah I bet that hurt. What were you thinking though? Just go home and close the door behind you. There is a bus outside waiting to take you to hell.</h1>
+                <h1 id="donotscream" class="hidden">Good job. There is nothing for you to accomplish. Just like life. The end. You are forgotten. The world didn't know your name. Now you're just an entry in some book somewhere, if you're lucky. No one's going to read that book. Nobody even knows there is a book. The world continues without you. I'm sorry.</h1>
+                <h1 id="run" class="hidden">You sprint away. You twist your ankle unfortunately and the poison fog turns you into a skeleton. That sucks. Yeah there was poison fog which you should have seen.</h1>
+                <h1 id="walk" class="hidden">You turn around slowly and walk away into the void. You never stop walking. Your feet gradually grind down into bloody stumps that harden and turn black. You feel no pain. That's the path you took. The end.</h1>
+
+            <div id="door4results">
+                <h1 id="turnaround" class="hidden">You turn around and go back the way you came. You lame wad. Close this game and sell your computer. Buy a ferret and just spend your time with that.</h1>
+                <h1 id="gohome" class="hidden">You win for real this time. Stay away from doors.</h1>
+                <h1 id="readthebook" class="hidden">Lots of reading to do.<br>
+                    loTts ofF Raedin Toodo<br>
+                    Lots of reading to do.
+                    loTts ofF RAweding to do.<br>
+                    LOOts offf rRAding 2 do!!<br>
+                    lts of 'rreaadding 2 do.<br>
+                    <span id="rightalign">Gotta get some reading done</span><br>
+                    lots of Radin u gotota do.<br>
+                    you gtotta goet some READING done.!<br>
+                    U gotta read some reading to do.<br>
+                    Lots of reading to do.<br>
+                    R<br>
+                    e<br>
+                    a<br>
+                    d<br>
+                    i<br>
+                    n<br>
+                    <span id="rightalign">!!!!!</span><br>
+                    g!<br>
+                    <br>
+                    <br>
+                    !!!!<br>
+                    readin<br>
+                    LotS of rEawDing too do.<br>
+                    reading to do lots of it.<br>
+                    You got a lot of REEEEEEEading to 2<br>
+                    To do it.<br>
+                    Please get some reading done.<br>
+                    Lots of reading to do.<br>
+                    Lots of reading to do.<br>
+                    Lotatas rof reaeanin  dn<br>
+                    loddts of eadin done!<br>
+                    REAdin!<br>
+                    gotta do it!<br>
+                    You gotta get some reading done!<br>
+                    <span id="rightalign">Reading is to be done!</span><br>
+                    do do do do do do do!<br>
+                    DO DO DO DO DO DO DO DO DO DO!<br>
+                    LOTS O READING TO DO<br><br>
+                    You have been killed by your own hatred of the book's contents.<br>
+                    You have drowned in a pool of hate. You should not hate so much.<br>But you're already dead. Dead Men Learn No Lessons.&#174;</h1>
+                <h1 id="doornumber4" class="hidden">"Ah gee Jimmy got no help for ya. HEEEEEEEEE!! Lots to do. Lots to do!"<br>You have failed. Goodbye.<br>
+                    The end.<br>
+                    That's all there is. I'm sorry.<br>
+                    Try again later.</h1>
+                <h1 id="dontknow" class="hidden">"I don't know either, big shot. And that's all the time we have for today. And now back to American Gladiators."</h1>
+                <h1 id="venom" class="hidden">To invoke the hive-mind representing chaos.<br>Invoking the FEELING of chaos.<br>Without order<br>purgs.
+                    <br>Help.<br>
+                    purgs.<br>
+                    The Asply hive-mind of chaos. Wiggle won.<br>
+                    Lust.<br>
+                    ((((LUST))))<br>
+                    He who Waits Behind The Wall.<br>
+                    WIGGLE WON.<br>
+                    He loves you.<br>
+                    We love you.<br>
+                    Purgs.<br>
+                    <span id="center">Puurrrgs</span>
+                    Purgs.<br>
+                    Help<br>
+                    Help.<br>
+                    WIGGLE WON.<br>
+                    PURGS.<br><br><br>
+                    WIGGLE<br>
+                    W O N.<br><br>
+                    That was the wrong choice. You've shattered the fragile psyches of every human being.</h1>
+                <h1 id="deplete" class="hidden">DEPLETING <pre>      ENERGY<br>            RESERVES.</pre><br>
+                    The crisis is averted however your brain is now mush slop puke slop. Goodbye.</h1>
+                <h1 id="cryage" class="hidden">You cry until you die. Look. You chose to cry. You were asked to stop. You ignored that.<br>What the fuck do you want?<br>You're playing MY GAME. You lose.</h1>
+                <h1 id="spacecannister" class="hidden">The Space Cannister reflects sadly upon the choices that it has made. The dent in its side contracts and then explodes.<br>
+                    <pre>            You're</pre><br>
+                    <pre>            experiencing</pre><br>
+                    <pre>            excessive</pre><br>
+                    <pre>            tabbed</pre><br>
+                    <pre>            indentation.</pre><br>
+                    I'm sorry things turned out this way. You lose. The end. Goodbye. Take your fuckin' tickin' top with you. The end. Do not ignore commands.</h1>
+                <h1 id="sodoadance" class="hidden">You dance. You dance the bubble toss. Bob Rob Plip seems mildly impressed, although you can't be sure since you have destroyed his face.<br>
+                    He allows you to leave on the condition you bubble toss your way back through Door 4.<br>
+                    You neither win nor lose. That's life. Sorry. It happens to a lot of people. No winning or losing, just passing through. No recognition. Nothing remarkable. Just stare into the concrete horizon on your bus commute home. Good job. Stay in line. Here is your coupon for 29 cents off a 2-liter bottle of Squirt.</h1>
+                <h1 id="gesticulate" class="hidden">Bob Rob Plip doesn't understand.<br>
+                    He produces a sidearm from the side of his arm and pumps you full of bullets. The end.<br>You can try again.<br>IF YOU DARE!</h1>
+                <h1 id="apologizealot" class="hidden">You're really overdoing it with the apologies. You mean well, but this comes across as hopeless and desperate. You lose. For being a loser.</h1>
+                <h1 id="plaintive" class="hidden">The plaintive wail is a crowd favorite with a rich historical history, but historically historians have argued the plaintive wail has gone out of fashion amongst dance enthusiasts such as Door 4 Manager Bob Rob Plip.<br>He shakes his head. You lose. I am really sorry about that. Gotta start all over.</h1>
+                <h1 id="bubbletoss" class="hidden">Bob Rob Plip likes the bubble toss. He lets you leave. You don't win anything, really, but you do have the opportunity to try another door.<br>You're pretty damn lucky considering what could have happened though. Just sayin' is all.</h1>
+                <h1 id="white" class="hidden">Ah man as soon as you touch the gem it flashes its embarrassing whiteness at you and incinerates the universe.<br>So close.<br>Looks like you lost after all.<br>I mean where can you go from there? So yeah this counts as a failure.<br>You racist.</h1>
+                <h1 id="red" class="hidden">The red gem is warm.<br>
+                    <pre>        Mmmmmmmm.</pre><br>
+                    Warm.<br>
+                    Warm like victory.</h1>
+                <h1 id="continuehuffing" class="hidden">Keep the rhythm going. IN AND OUT! IN AND OUT!<br>
+                    Life's not fair.<br>
+                    Hey slow down there now. Slow down!<br>
+                    IN AND OUT.<br>
+                    Not everyone gets going at the same time. The world fades away as white noise comes emerges from the walls.<br>
+                    The world is a neglected run-down racetrack.<br>
+                    The glue wins.<br>
+                    The world wins. You do not. The end.</h1>
+                <h1 id="huffmore" class="hidden">Dead. You die. The glue kills you, you loser. Why would you do that? WHY?</h1>
+                <h1 id="seekingmore" class="hidden">Wrong choice. Stay off the glue. Stay out of Door #4! If you can't go two minutes without shooting chemicals in your face just stay out of this game completely! Game over. Done. Gone. We're done here. The door closes. Try again.</h1>
+                <div id="standby" class="hidden"><h1>Stand by.<br>Contacting mainframe...</h1><button id="returnerror">Continue</button></div>
+                <h1 id="simulation" class="hidden">ERROR. ADDRESS DOES NOT EXIST.<br>
+                    YOU DO NOT EXIST.<br>
+                    THE ARCHITECTS WILL REVIEW THE RESULTS OF THIS EXPERIMENT.<br><br>
+                    S. I. M. U. L. A. T. I. O. N.<br>
+                    T. E. R. M. I. N. A. T. E. D.<br>
+                <h1 id="beingeaten" class="hidden">Therefore the sandwich will be eaten. You enjoy it. It is a tasty sandwich. Delicious.<br>
+                    Yummy!</br>
+                    The sandwich was loaded with healthy nutrients. You glide back out of Door 4 wraith-like satisfied.<br><br>
+                    You return home to your studio apartment in the Warehouse District and continue re-reading your favorite book Angels &#38; Demons by Dan Brown.<br><br>
+                    You didn't make it very far in the Door Scenario but the brief pangs of regret that life maybe could have changed had you made different choices are repressed as time marches on in a parade of missed opportunities and social misfires.</h1>
+                <h1 id="notbeingeaten" class="hidden">This is the moment you realize you no longer have autonomy over the workings of your mind. You have received communications from a sandwich. Nothing comes after this. The end.</h1>
+                <h1 id="guzzle" class="hidden">Holy shit you are gonna die. Goodbye. In five seconds you are going to find out why grand mojitos are banned everywhere.</h1>
+                <h1 id="pour" class="hidden">The grand mojito steams and screams, boils and roils, smokes and pokes its way out into the night (the ceiling beyond Door #4 is open by the way), the sky turns red with the fire of a supernova. THIS IS WHY GRAND MOJITOS ARE BANNED!!! You perceive a brief glimpse of the heavens as the sky burns down. Understanding floods your little mind before it winks out.</h1>
+                <h1 id="drugs" class="hidden">Yeah you're getting lost in imaginary drinks. Go outside and come back when you can remember your name. LOSER.</h1>
+                <h1 id="life" class="hidden">That's cute. You lack sufficient self-awareness to proceed. The world is not small enough to fit in a Facebook status. Goodbye.</h1>
+                <h1 id="onemore" class="hidden">You nurse another dark-skinned stranger and then head home for the night. You awaken with foggy memories of your time in the Door Scenario.<br><br>Convincing yourself it was a mere dream, you get ready for your job routing Moneygram transfers. You don't win or lose, but simply continue. You're just another body on this choked planet, but nobody really notices. Your mild existential malaise remains inarticulable and you just kind of tacitly assume this is what adulthood is.<br><br>You consider picking up a new skill in the hopes of starting a career, but that idealism is just funny. Dreams don't come true. That's for kids who don't know better.<br><br>That's the problem with dark-skinned strangers...</h1>
+                <div id="seconds" class="hidden"></div>
+                <h1 id="lotsmore" class="hidden">Your greed has gotten the better of you. That's unfortunate because things were going well. You collapse in an exhausted heap of laundry. Door #4 doesn't fuck around. The end.</h1>
+                <h1 id="think" class="hidden">Very wise. But what are you doing with youre life? You considered drinkings something called the dark-skinned stranger. How can you possibly hope to win with that approach? The end.</h1>
+                <h1 id="democracy" class="hidden">Door #4 fucks with your mind too much. Despite the delicious democratic taste, you suffer a momentary bout of morality and put the vial down. You turn around and walk away. Maybe you should not have eaten that old sandwich. I'm sorry. The end.</h1>
+                <h1 id="levelup" class="hidden">You become dictator. You round up more slave children. You swim in pools of their tears. You are a fucking monster. Years pass. You think you've won. But deep down you know you made the wrong choice. You munch on a child's shinbone. This was not the most ideal outcome.</h1>
+                <h1 id="guilt" class="hidden">ALL ABOARD!!! Too late. This mothafucka takes the express route to Sorrowsville. Here you see how children's tears are harvested. You have made some dark choices.<br><br>The world continues, shamefully acknowledging that you were once a part of it. Game over.</h1>
+                <h1 id="tastemojito" class="hidden">No it doesn't. You have failed. The end.</h1>
+                <h1 id="yesice" class="hidden">You enjoy the cool ice water and relax in Door #4's chamber. You don't have much motivation to continue but that's okay. Door #4 contained some unspeakable horrors. Just get out while you can. NOW! GET THE FUCK OUT!!! Congrats. You win. Your dog will not be killed.</h1>
+                <h1 id="gimmelouder" class="hidden">You shut your loser mouth. You know what. No, forget it. Game over. Nobody talks in caps like that to me. Go home.</h1>
+                <h1 id="noice" class="hidden">A large monster (made of ice) crashes through the wall and tears you apart with its icy gaze. You reflect grimly on the crushing irony of the situation.<br><br>Another large monster (made of iron) crushes through the other wall and laughs a hearty laugh that sounds like ambivalent range. The end?</h1>
+
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript">
+
+            /* TOP QUESTION */
+
+            var starTime;
+
+            $('#start a').click(function(e) {
+                e.preventDefault();
+                var time = new Date();
+                startTime = time.getTime();
+                console.log(startTime);
+                $(".hidden").hide();
+                $('.children').hide();
+                var nextId = $(this).data('next');
+                $('#' + nextId).show();
+            });
+
+            /* FOLLOWING QUESTIONS */
+
+            $('.children a').click(function(e) {
+                e.preventDefault();
+                $('.children').hide();
+                var nextId = $(this).data('next');
+                $('#' + nextId).show();
+
+            });
+
+            // Buttons, etc
+
+            $('#submittomainframe').click(function(){
+                $('.children').hide();
+                $('#standby').show();
+            });
+
+            $('#returnerror').click(function(){
+                $('.children').hide();
+                $('#standby').hide();
+                $('#simulation').show().fadeOut(20000);
+            });
+
+            $('#time').click(function(e){
+                e.preventDefault();
+                $('.children').hide();
+                var currentTime = new Date();
+                var endTime = currentTime.getTime();
+                var finalTime = (endTime - startTime) / 1000;
+                console.log(finalTime);
+                $('#seconds').append("<h1>You passed through Door #4 " + finalTime + " seconds ago and you're already slamming back dark-skinned strangers? Please start over and go more slowly.</h1>").show();
+
+            });
+        </script>
+
+
