@@ -1,8 +1,10 @@
 from __future__ import unicode_literals
 from django.contrib.auth.models import User
 from django.db import models
-from django.utils import timezone
+from django.utils import timezone as django_timezone
 
+from datetime import datetime
+from pytz import timezone
 
 class Painting(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
@@ -19,14 +21,25 @@ class UserPainting(models.Model):
     viewed = models.BooleanField(default=False)
 
     def __str__(self):
-        return str(self.user).title() + ' viewed ' + str(self.painting).upper()
+        user = str(self.user).title()
+        painting = str(self.painting).upper()
+
+        return f'{user} viewed {painting}'
 
 
 class Attempt(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     guess = models.CharField(max_length=100, null=True, blank=True)
-    timestamp = models.DateTimeField(default=timezone.now, db_index=True)
+    timestamp = models.DateTimeField(default=django_timezone.now, db_index=True)
 
     def __str__(self):
-        return str(self.user).title() + ' tried: ' + str(self.guess).upper()
+        fmt = "%H:%M on %m-%d-%Y"
+        timestamp = self.timestamp
+        now_pacific = timestamp.astimezone(timezone('US/Pacific'))
+        timestamp = now_pacific.strftime(fmt)
+
+        user = str(self.user).title()
+        guess = str(self.guess).upper()
+
+        return f'{user} tried: {guess} at {timestamp}'
 
