@@ -84,8 +84,10 @@ $(document).ready(function() {
                     var english = response.english;
                     var latin = response.latin;
                     var imageAddress = response.image;
+                    var guessCount = response.attempts_count;
                     $('.title-text h1').text(english);
                     $('.title-text h5').text(latin);
+                    $('.title-text p #guess-count').text(guessCount);
                     $('.results-modal .image-container').find('img').attr('src', imageAddress);
                     $('.painting-container').fadeOut(2000);
                     $('.titles-container').fadeOut(2000);

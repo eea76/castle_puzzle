@@ -36,15 +36,9 @@ def painting(request, painting_name):
 def unnamed(request):
     viewed_paintings = UserPainting.objects.filter(user=request.user)
     viewed_paintings_count = len(viewed_paintings)
-    correct_name = 'vividarium intervigilium viator'
-    english = 'In the Garden Sleeps a Messenger'
-    latin = 'Vividarium et Intervigilium et Viator'
 
     obj = {
         'viewed_paintings': viewed_paintings,
-        'correct_name': correct_name,
-        'english': english,
-        'latin': latin,
         'viewed_paintings_count': viewed_paintings_count,
     }
 
@@ -123,6 +117,7 @@ def painting_guess(request):
                 'english': 'In the Garden Sleeps a Messenger',
                 'latin': 'Vividarium et Intervigilium et Viator',
                 'image': "https://ultimeciacastle.s3-us-west-2.amazonaws.com/screens/unnamed.jpg",
+                'attempts_count': Attempt.objects.filter(user=request.user).count()
             }
 
             return HttpResponse(json.dumps(answer))
