@@ -15,15 +15,23 @@ def ground_floor(request):
     obj = {}
     return render(request, 'index.html', obj)
 
+
+def about(request):
+    obj = {}
+    return render(request, 'about.html', obj)
+
+
 @login_required
 def balcony_front(request):
     obj = {}
     return render(request, 'balcony_front.html', obj)
 
+
 @login_required
 def balcony_overhead(request):
     obj = {}
     return render(request, 'balcony_overhead.html', obj)
+
 
 @login_required
 def painting(request, painting_name):
@@ -33,6 +41,7 @@ def painting(request, painting_name):
     }
 
     return render(request, 'painting.html', obj)
+
 
 @login_required
 def unnamed(request):
@@ -158,7 +167,6 @@ def reset(request):
         view_painting.delete()
 
     return redirect('/unnamed')
-
 
 
 def get_client_ip(request):
