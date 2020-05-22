@@ -1,6 +1,6 @@
 # on new machines run this in the shell so the database is
 # populated and the ids match up
-# probably have to rewrite the view/url/template so it doesn't depend
+# or just rewrite the view/url/template so it doesn't depend
 # on ids matching
 
 from index.models import *
