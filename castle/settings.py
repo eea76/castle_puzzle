@@ -35,7 +35,7 @@ DEBUG = config('debug', cast=bool)
 ALLOWED_HOSTS = ['*']
 
 
-
+HTTP_X_FORWARDED_FOR = -1
 
 # Application definition
 
