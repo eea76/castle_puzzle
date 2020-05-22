@@ -5,7 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 import json
-
+from datetime import datetime
+from pytz import timezone
 from .models import *
 
 
@@ -98,7 +99,10 @@ def view_painting(request):
 def painting_guess(request):
     try:
         data = json.loads(request.body)
+
+        timestamps = data['timestamps']
         guess = data['guess']
+        print(timestamps)
 
         correct_name = 'vividarium intervigilium viator'
         guess = guess.strip().lower()
@@ -106,6 +110,20 @@ def painting_guess(request):
         new_guess = Attempt()
         new_guess.user = request.user
         new_guess.guess = guess
+
+        first_title = guess.split(' ')[0]
+        first_title_timestamp = timestamps[0]
+        second_title = guess.split(' ')[1]
+        second_title_timestamp = timestamps[1]
+        third_title = guess.split(' ')[2]
+        third_title_timestamp = timestamps[2]
+
+        new_guess.first_title = first_title
+        new_guess.first_title_timestamp = first_title_timestamp
+        new_guess.second_title = second_title
+        new_guess.second_title_timestamp = second_title_timestamp
+        new_guess.third_title = third_title
+        new_guess.third_title_timestamp = third_title_timestamp
 
         new_guess.save()
 

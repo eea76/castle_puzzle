@@ -30,11 +30,17 @@ class UserPainting(models.Model):
 class Attempt(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE)
     guess = models.CharField(max_length=100, null=True, blank=True)
-    timestamp = models.DateTimeField(default=django_timezone.now, db_index=True)
+    first_title = models.CharField(max_length=100, null=True, blank=True)
+    first_title_timestamp = models.DateTimeField(blank=True, null=True, db_index=True, default=None)
+    second_title = models.CharField(max_length=100, null=True, blank=True)
+    second_title_timestamp = models.DateTimeField(blank=True, null=True, db_index=True, default=None)
+    third_title = models.CharField(max_length=100, null=True, blank=True)
+    third_title_timestamp = models.DateTimeField(blank=True, null=True, db_index=True, default=None)
+    submission_timestamp = models.DateTimeField(default=django_timezone.now, db_index=True)
 
     def __str__(self):
         fmt = "%H:%M on %m-%d-%Y"
-        timestamp = self.timestamp
+        timestamp = self.submission_timestamp
         now_pacific = timestamp.astimezone(timezone('US/Pacific'))
         timestamp = now_pacific.strftime(fmt)
 

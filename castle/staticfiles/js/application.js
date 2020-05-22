@@ -41,16 +41,23 @@ $(document).ready(function() {
     // if guessed title < 3 words, allow for more guesses
     // if === 3, hide title list and ask if user is ready to submit
     var guesses = 0;
+    var timestamps = [];
     $('.viewed-painting').on('click', function() {
 
         if (guesses < 3) {
+
             var paintingName = $(this).text();
+
+            var currentTime = new Date();
+            timestamps.push(currentTime);
+
             $('.unnamed-painting-title').append('<span class="viewed-painting-name" style="display:inline-block;padding:0 10px;">' + paintingName + ' ' + '</span>');
 
             guesses += 1;
         }
 
         if (guesses === 3) {
+            console.log(timestamps);
             var guessedTitle = $('.unnamed-painting-title').text();
             $('.viewed-paintings').hide();
             $('.submit-title').fadeIn(1000);
@@ -72,6 +79,7 @@ $(document).ready(function() {
         var message = {};
 
         message.guess = guessedTitle;
+        message.timestamps = timestamps;
 
         $.ajax({
             type: 'post',
