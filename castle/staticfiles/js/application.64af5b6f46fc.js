@@ -41,15 +41,16 @@ $(document).ready(function() {
     // if guessed title < 3 words, allow for more guesses
     // if === 3, hide title list and ask if user is ready to submit
     var guesses = 0;
-    var timestamps = [];
+    var timestamps = {};
     $('.viewed-painting').on('click', function() {
 
         if (guesses < 3) {
 
             var paintingName = $(this).text();
 
+            timestamps[guesses] = {};
             var currentTime = new Date();
-            timestamps.push(currentTime);
+            timestamps[guesses][paintingName] = currentTime;
 
             $('.unnamed-painting-title').append('<span class="viewed-painting-name" style="display:inline-block;padding:0 10px;">' + paintingName + ' ' + '</span>');
 
