@@ -21,6 +21,11 @@ def about(request):
     return render(request, 'about.html', obj)
 
 
+def adventure(request):
+    obj = {}
+    return render(request, 'adventure.html', obj)
+
+
 @login_required
 def balcony_front(request):
     obj = {}
