@@ -27,12 +27,12 @@ $(document).ready(function() {
         e.preventDefault();
         var address = $(this).attr('href');
         var painting = $(this).attr('href').split('/');
-        var paintingId = painting.pop();
+        var paintingName = painting.pop();
 
-        console.log(address);
+        console.log(painting);
         var message = {};
 
-        message.paintingId = paintingId;
+        message.paintingName = paintingName;
 
         ajaxCall(message, address, 'view_painting');
 
