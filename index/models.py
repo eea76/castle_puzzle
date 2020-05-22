@@ -73,6 +73,8 @@ class Attempt(models.Model):
 
         user = str(self.user).title()
         guess = str(self.guess).upper()
-
-        return f'{user} tried: {guess} at {timestamp}'
+        if guess == 'VIVIDARIUM INTERVIGILIUM VIATOR':
+            return f'SUCCESS: {user} got it at {timestamp}'
+        else:
+            return f'{user} tried: {guess} at {timestamp}'
 
