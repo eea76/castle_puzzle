@@ -33,6 +33,12 @@ button {
     color: #c4c4c4;
 }
 
+.about {
+    padding: 0;
+    opacity: .6;
+    float: right;
+}
+
 
 /*login*/
 .login-container {
@@ -236,6 +242,16 @@ area {
     color: black;
 }
 
+/*about*/
+
+.about-container {
+    margin-top: 3em;
+}
+
+.about-container a {
+    padding: 0;
+}
+
 @media (max-width: 1000px) {
     .titles-container {
         width: 300px;
@@ -253,7 +269,8 @@ area {
 }
 
 @media (max-width: 612px) {
-    .login-container {
+    .login-container,
+    .about-container {
         width: 100%;
         font-size: 20px;
     }
