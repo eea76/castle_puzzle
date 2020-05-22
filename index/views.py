@@ -72,10 +72,10 @@ def view_painting(request):
 
     try:
         data = json.loads(request.body)
-        painting_id = data['paintingId']
+        painting_name = data['paintingName']
 
-        if painting_id != 'unnamed':
-            painting = Painting.objects.get(id=painting_id)
+        if painting_name != 'unnamed':
+            painting = Painting.objects.get(name=painting_name)
             user_painting = UserPainting.objects.get_or_create(
                 user=request.user,
                 painting=painting,
