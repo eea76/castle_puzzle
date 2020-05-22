@@ -81,7 +81,6 @@ def view_painting(request):
                 painting=painting,
                 viewed=True)
 
-            print(user_painting)
             user_painting[0].save()
         else:
             redirect('/unnamed')
