@@ -1,5 +1,6 @@
 $(document).ready(function() {
 
+    // function for making the ajax call
     function ajaxCall(message, address, url) {
         $.ajax({
             type: 'post',
@@ -17,8 +18,11 @@ $(document).ready(function() {
         return true;
     }
 
+    // resizes the imagemaps so the coordinates
+    // stay in the same location regardless of zoom level
     $('map').imageMapResize();
 
+    // call the view_painting view with id of clicked image
     $('area').on('click', function(e) {
         e.preventDefault();
         var address = $(this).attr('href');
@@ -34,6 +38,8 @@ $(document).ready(function() {
 
     })
 
+    // if guessed title < 3 words, allow for more guesses
+    // if === 3, hide title list and ask if user is ready to submit
     var guesses = 0;
     $('.viewed-painting').on('click', function() {
 
@@ -52,11 +58,15 @@ $(document).ready(function() {
         }
     });
 
+    // clear the viewed paintings
+    // (this makes a call to django and deletes all
+    // viewed paintings associated with the logged-in user)
     $('.start-over').on('click', function() {
         window.location = '/unnamed';
     })
 
-
+    // submits chosen title
+    // alert if incorrect, show success modal if correct
     $('.submit').on('click', function() {
         var guessedTitle = $('.unnamed-painting-title').text();
         var message = {};
@@ -93,13 +103,4 @@ $(document).ready(function() {
         return true;
 
     })
-
-
-
-
-
-
-
-
-
 });
