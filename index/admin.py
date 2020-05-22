@@ -12,3 +12,6 @@ class AttemptAdmin(admin.ModelAdmin):
 admin.site.register(Painting)
 admin.site.register(UserPainting, UserPaintingAdmin)
 admin.site.register(Attempt, AttemptAdmin)
+admin.site.register(Browser)
+admin.site.register(OperatingSystem)
+admin.site.register(PageLoad)

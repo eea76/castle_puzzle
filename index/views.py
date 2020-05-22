@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 import json
 from datetime import datetime
 from pytz import timezone
+from django.utils import timezone as django_timezone
 from .models import *
 
 
@@ -157,3 +158,42 @@ def reset(request):
         view_painting.delete()
 
     return redirect('/unnamed')
+
+
+
+def get_client_ip(request):
+    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+    if x_forwarded_for:
+        ip = x_forwarded_for.split(',')[0]
+    else:
+        ip = request.META.get('REMOTE_ADDR')
+    return ip
+
+
+@csrf_exempt
+def detect_browser(request):
+
+    try:
+        data = json.loads(request.body)
+        browser = data['browser']
+        operating_system = data['os']
+
+        b = Browser.objects.get_or_create(name = browser)
+        o = OperatingSystem.objects.get_or_create(name = operating_system)
+
+        p = PageLoad()
+        p.page = data['url']
+        p.browser = b[0]
+        p.operating_system = o[0]
+        p.ip_address = get_client_ip(request)
+        p.time_stamp = django_timezone.now()
+
+        p.save()
+
+
+    except Exception as e:
+        print("unable to detect browser")
+        print(e)
+
+
+    return HttpResponse("Success")

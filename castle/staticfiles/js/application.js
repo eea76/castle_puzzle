@@ -113,4 +113,26 @@ $(document).ready(function() {
         return true;
 
     })
+
+
+    //get page load info
+    var user = detect.parse(navigator.userAgent);
+
+    var data_message = {};
+    data_message.browser = user.browser.name;
+    data_message.os = user.os.name;
+    data_message.url = window.location.href;
+    console.log(data_message.os);
+
+    $.ajax({
+        type: 'post',
+        data: JSON.stringify(data_message),
+        url: '/detect_browser/',
+        success: function(response) {
+
+        },
+        processData: false,
+        contentType: false,
+        async: true
+    });
 });
