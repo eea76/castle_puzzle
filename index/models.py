@@ -9,14 +9,14 @@ from pytz import timezone
 
 
 class Browser(models.Model):
-    name = models.CharField(max_length=1000, blank = True, null = True)
+    name = models.CharField(max_length=1000, blank=True, null=True)
 
     def __str__(self):
         return self.name
 
 
 class OperatingSystem(models.Model):
-    name = models.CharField(max_length=1000, blank = True, null = True)
+    name = models.CharField(max_length=1000, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -24,23 +24,51 @@ class OperatingSystem(models.Model):
 
 class PageLoad(models.Model):
     user = models.ForeignKey('auth.User', on_delete=models.CASCADE, blank=True, null=True)
-    page = models.CharField(max_length=1000, null = True, blank = True)
-    time_stamp = models.DateTimeField(blank = True, null = True)
-    ip_address = models.CharField(max_length = 100, blank = True, null = True)
-    browser = models.ForeignKey(Browser, blank = True, null = True, on_delete=models.CASCADE)
-    operating_system = models.ForeignKey(OperatingSystem, blank = True, null = True, on_delete=models.CASCADE)
+    page = models.CharField(max_length=1000, null=True, blank=True)
+    time_stamp = models.DateTimeField(blank=True, null=True)
+    ip_address = models.CharField(max_length=100, blank=True, null=True)
+    browser = models.ForeignKey(Browser, blank=True, null=True, on_delete=models.CASCADE)
+    operating_system = models.ForeignKey(OperatingSystem, blank=True, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.page
 
 
+class Room(models.Model):
+    room = models.CharField(max_length=1000, null=True, blank=True)
+    image = models.CharField(max_length=1000, null=True, blank=True)
+    room_id = models.CharField(max_length=1000, null=True, blank=True)
+
+    def __str__(self):
+        return self.room
+
+
+class Link(models.Model):
+    text = models.CharField(max_length=1000, null=True, blank=True)
+    href = models.CharField(max_length=1000, null=True, blank=True)
+    room = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.text
+
 class Painting(models.Model):
     name = models.CharField(max_length=100, null=True, blank=True)
     translation = models.CharField(max_length=100, null=True, blank=True)
     painting = models.ImageField(upload_to='images/', null=True)
+    room = models.ManyToManyField(Room, null=True, blank=True)
 
     def __str__(self):
         return str(self.name)
+
+
+class PaintingPerRoom(models.Model):
+    coordinates = models.CharField(max_length=100, null=True, blank=True)
+    painting = models.ForeignKey(Painting, null=True, on_delete=models.CASCADE)
+    href = models.CharField(max_length=100, null=True, blank=True)
+    room = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.painting) + ' (' + str(self.room) + ')'
 
 
 class UserPainting(models.Model):

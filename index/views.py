@@ -11,9 +11,26 @@ from django.utils import timezone as django_timezone
 from .models import *
 
 
-def ground_floor(request):
-    obj = {}
-    return render(request, 'index.html', obj)
+def index(request):
+    if request.user.is_authenticated:
+        return redirect('/room/groundfloor')
+    else:
+        return render(request, 'index.html')
+
+
+@login_required
+def room(request, room):
+    room = Room.objects.get(room=room)
+    paintings = PaintingPerRoom.objects.filter(room=room)
+    links = Link.objects.filter(room=room)
+
+    obj = {
+        'room': room,
+        'paintings': paintings,
+        'links': links,
+    }
+
+    return render(request, 'room.html', obj)
 
 
 def about(request):
@@ -24,18 +41,6 @@ def about(request):
 def adventure(request):
     obj = {}
     return render(request, 'adventure.html', obj)
-
-
-@login_required
-def balcony_front(request):
-    obj = {}
-    return render(request, 'balcony_front.html', obj)
-
-
-@login_required
-def balcony_overhead(request):
-    obj = {}
-    return render(request, 'balcony_overhead.html', obj)
 
 
 @login_required
@@ -63,6 +68,7 @@ def unnamed(request):
 
 #######
 
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -85,7 +91,6 @@ def signup(request):
 
 @csrf_exempt
 def view_painting(request):
-
     try:
         data = json.loads(request.body)
         painting_name = data['paintingName']
@@ -185,7 +190,6 @@ def get_client_ip(request):
 
 @csrf_exempt
 def detect_browser(request):
-
     try:
         data = json.loads(request.body)
         browser = data['browser']
@@ -205,7 +209,6 @@ def detect_browser(request):
             p.user = request.user
 
         p.save()
-
 
     except Exception as e:
         print("unable to detect browser")

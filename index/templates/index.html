@@ -2,68 +2,6 @@
 {% load static %}
 {% block content %}
 
-{% if user.is_authenticated %}
-<a class="about" href="/about">about</a>
-<div class="image-container">
-
-    <div class="art-gallery">
-        <div id="ground-floor">
-            <map name="ground-floor">
-                <area
-                    href="/unnamed"
-                    shape=poly
-                    coords="50,200, 160,250, 160,475, 50,500">
-
-                <area
-                    href="/painting/ignus"
-                    shape=poly
-                    coords="400,400, 475,400, 475,450, 400,450">
-
-                <area
-                    href="/painting/inandantia"
-                    shape=poly
-                    coords="600,375, 675,375, 675,450, 600,450">
-
-                <area
-                    href="/painting/intervigilium"
-                    shape=poly
-                    coords="1175,380, 1275,385, 1275,500, 1175,500">
-
-                <area
-                    href="/painting/xiphias"
-                    shape=poly
-                    coords="635,75, 735,80, 735,140, 635,140">
-
-                <area
-                    href="/painting/xerampelinae"
-                    shape=poly
-                    coords="500,60, 560,60, 560,150, 510,150">
-
-                <area
-                    href="/painting/venus"
-                    shape=poly
-                    coords="810,50, 840,50, 840,135, 810,135">
-
-                <area
-                    href="/painting/iudicium"
-                    shape=poly
-                    coords="800,375, 835,375, 835,450, 810,450">
-
-            </map>
-
-            <img src="https://ultimeciacastle.s3-us-west-2.amazonaws.com/screens/ground_final.png" usemap="#ground-floor">
-        </div>
-
-        <hr>
-
-        <a href="/balcony_front">Go Upstairs</a>
-    </div>
-
-
-
-</div>
-
-{% else %}
 
 <div class="login-container">
     <p class="deck">Hello yes and please login or create an account to play this GAME (this is necessary so multiple people can play at a time).</p>
@@ -74,8 +12,6 @@
 
     <p>Don't have an account? <a href="/signup">Create one here THANKS</a></p>
 </div>
-
-{% endif %}
 
 
 

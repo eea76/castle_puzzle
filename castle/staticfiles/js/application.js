@@ -5,7 +5,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'post',
             data: JSON.stringify(message),
-            url: 'view_painting',
+            url: url,
             success: function(response) {
                 location.href = address;
             },
@@ -28,13 +28,11 @@ $(document).ready(function() {
         var address = $(this).attr('href');
         var painting = $(this).attr('href').split('/');
         var paintingName = painting.pop();
-
-        console.log(painting);
         var message = {};
 
         message.paintingName = paintingName;
 
-        ajaxCall(message, address, 'view_painting');
+        ajaxCall(message, address, '/view_painting');
 
     })
 

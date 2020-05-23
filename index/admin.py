@@ -15,7 +15,10 @@ class AttemptAdmin(admin.ModelAdmin):
     list_filter = ('user', )
 
 admin.site.register(Painting)
+admin.site.register(Room)
+admin.site.register(PaintingPerRoom)
 admin.site.register(UserPainting, UserPaintingAdmin)
+admin.site.register(Link)
 admin.site.register(Attempt, AttemptAdmin)
 admin.site.register(Browser)
 admin.site.register(OperatingSystem)
