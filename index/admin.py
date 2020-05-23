@@ -7,7 +7,7 @@ class UserPaintingAdmin(admin.ModelAdmin):
 
 
 class PageLoadAdmin(admin.ModelAdmin):
-    list_filter = ('ip_address',)
+    list_filter = ('user',)
     list_display = ('page', 'user', 'time_stamp', 'ip_address',)
 
 
