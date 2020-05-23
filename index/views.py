@@ -194,7 +194,7 @@ def detect_browser(request):
         b = Browser.objects.get_or_create(name = browser)
         o = OperatingSystem.objects.get_or_create(name = operating_system)
 
-        user = request.user
+
 
         p = PageLoad()
         p.page = data['url']
@@ -202,7 +202,10 @@ def detect_browser(request):
         p.operating_system = o[0]
         p.ip_address = get_client_ip(request)
         p.time_stamp = django_timezone.now()
-        p.user = user
+
+        if request.user.is_authenticated:
+            p.user = request.user
+            print('no')
 
         p.save()
 
