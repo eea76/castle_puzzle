@@ -23,6 +23,7 @@ class OperatingSystem(models.Model):
 
 
 class PageLoad(models.Model):
+    user = models.ForeignKey('auth.User', on_delete=models.CASCADE, blank=True, null=True)
     page = models.CharField(max_length=1000, null = True, blank = True)
     time_stamp = models.DateTimeField(blank = True, null = True)
     ip_address = models.CharField(max_length = 100, blank = True, null = True)
