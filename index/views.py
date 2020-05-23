@@ -194,8 +194,6 @@ def detect_browser(request):
         b = Browser.objects.get_or_create(name = browser)
         o = OperatingSystem.objects.get_or_create(name = operating_system)
 
-
-
         p = PageLoad()
         p.page = data['url']
         p.browser = b[0]
@@ -205,7 +203,6 @@ def detect_browser(request):
 
         if request.user.is_authenticated:
             p.user = request.user
-            print('no')
 
         p.save()
 
