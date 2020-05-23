@@ -8,7 +8,7 @@ class UserPaintingAdmin(admin.ModelAdmin):
 
 class PageLoadAdmin(admin.ModelAdmin):
     list_filter = ('ip_address',)
-    list_display = ('page', 'time_stamp', 'ip_address',)
+    list_display = ('page', 'user', 'time_stamp', 'ip_address',)
 
 
 class AttemptAdmin(admin.ModelAdmin):
