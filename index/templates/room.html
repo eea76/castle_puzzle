@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+<a class="about" href="/about">about</a>
+<div class="image-container">
+
+    <div class="art-gallery">
+        <div id="{{room.room_id}}">
+            <map name="{{room.room_id}}">
+                {% for painting in paintings %}
+                <area
+                    href="{{painting.href}}"
+                    shape=poly
+                    coords="{{painting.coordinates}}">
+                {% endfor %}
+            </map>
+
+            <img src="{{room.image}}" usemap="#{{room.room_id}}">
+        </div>
+
+        <hr>
+
+        {% for link in links %}
+        <a href="/room/{{link.href}}">{{link.text}}</a>
+        {% endfor %}
+    </div>
+
+</div>
+
+
+
+{% endblock %}

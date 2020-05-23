@@ -96,9 +96,9 @@ DATABASES = {
     }
 }
 
-LOGIN_REDIRECT_URL = 'ground_floor'
+LOGIN_REDIRECT_URL = '/room/groundfloor'
 LOGIN_URL = '/login'
-LOGOUT_REDIRECT_URL = 'ground_floor'
+LOGOUT_REDIRECT_URL = '/'
 
 LOGGING = {
     'version': 1,
