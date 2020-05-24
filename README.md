@@ -17,7 +17,7 @@ In Django terms, this means getting all existing UserPainting objects and filter
 `viewed_paintings = UserPainting.objects.filter(user=request.user)`
 and then in the template we iterate over the titles contained in the filtered queryset.
 
-With this method, multiple users can be logged in at once and not have to worry about anyone else's progress interfering with their own.
+With this method, multiple users can play at once and not have to worry about anyone else's progress interfering with their own.
 
 Each room is an html imagemap with the paintings' coordinates embedded inside it. I found a cool javascript library that preserves the hotspots on the imagemap regardless of zoom level, so it doesn't matter how large your screen is (https://github.com/davidjbradshaw/image-map-resizer).
 
