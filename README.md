@@ -6,7 +6,7 @@ This app is a faithful re-creation of a challenging puzzle in Final Fantasy VIII
 
 A thirteenth painting hangs in the main room with its title smudged. It is the player's task to consider the titles of each of the other twelve paintings and determine the likely title of the unnamed painting.
 
-From a certain vantage point the player eventually glimpses a large clock on the floor with its hour hand pointing to VIII, minute hand pointing to IIII (not IV), and second hand pointing to VI. The player is to realize the numerals __I__ through __XII__ are contained in each of the twelve paintings' titles, use the order one would read a clock (H > M > S), and find the corresponding paintings that contain those roman numerals.
+From a certain vantage point the player eventually glimpses a large clock on the floor with its hour hand pointing to VIII, minute hand pointing to IIII (not IV), and second hand pointing to VI. The player is to realize the numerals __I__ through __XII__ are contained in each of the twelve paintings' titles, use the order one would read a clock (H > M > S), and find the corresponding paintings that contain those roman numerals, then assemble the three-word title and submit it.
 
 ----
 
