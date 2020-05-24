@@ -7,17 +7,17 @@
 <div class="image-container">
 
     <div class="art-gallery">
-        <div id="{{room.room_id}}">
-            <map name="{{room.room_id}}">
+        <div id="{{room.room}}">
+            <map name="{{room.room}}">
                 {% for painting in paintings %}
                 <area
-                    href="{{painting.href}}"
+                    href="/painting/{{painting.painting}}"
                     shape=poly
                     coords="{{painting.coordinates}}">
                 {% endfor %}
             </map>
 
-            <img src="{{room.image}}" usemap="#{{room.room_id}}">
+            <img src="{{room.image}}" usemap="#{{room.room}}">
         </div>
 
         <hr>
