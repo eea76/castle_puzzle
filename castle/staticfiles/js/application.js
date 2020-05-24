@@ -98,6 +98,8 @@ $(document).ready(function() {
                     $('.painting-container').fadeOut(2000);
                     $('.titles-container').fadeOut(2000);
                     $('.results-modal').fadeIn(4000);
+                } else if (response.tried_to_hack) {
+                    alert(response.tried_to_hack);
                 } else {
                     alert('sorry that is incorrect');
                 }
