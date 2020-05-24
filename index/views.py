@@ -123,6 +123,32 @@ def painting_guess(request):
         timestamps = data['timestamps']
         guess = data['guess']
 
+        painting_titles = [
+            'VENUS',
+            'XERAMPELINAE',
+            'VIVIDARIUM',
+            'IGNUS',
+            'INANDANTIA',
+            'IUDICIUM',
+            'INTERVIGILIUM',
+            'XIPHIAS',
+            'VIGIL',
+            'VIATOR',
+            'INAUDAX',
+            'XYSTUS'
+        ]
+
+        tried_to_hack = False
+
+        split_guess = guess.strip().split(' ')
+        for legit_title in split_guess:
+            print(legit_title)
+            if legit_title in painting_titles:
+                continue
+            else:
+                tried_to_hack = True
+
+
         correct_name = 'vividarium intervigilium viator'
         guess = guess.strip().lower()
 
@@ -157,10 +183,20 @@ def painting_guess(request):
             }
 
             return HttpResponse(json.dumps(answer))
+
+        elif tried_to_hack:
+            answer = {
+                'correct': False,
+                'tried_to_hack': '!!! WTF !!! trying to hack the source code will not help you.'
+            }
+
+            return HttpResponse(json.dumps(answer))
+
         else:
             answer = {
-                'correct': False
+                'correct': False,
             }
+
             return HttpResponse(json.dumps(answer))
 
     except Exception as e:
