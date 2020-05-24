@@ -122,7 +122,6 @@ def painting_guess(request):
 
         timestamps = data['timestamps']
         guess = data['guess']
-        print(timestamps)
 
         correct_name = 'vividarium intervigilium viator'
         guess = guess.strip().lower()

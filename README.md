@@ -19,9 +19,9 @@ and then in the template we iterate over the titles contained in the filtered qu
 
 With this method, multiple users can be logged in at once and not have to worry about anyone else's progress interfering with their own.
 
-Each room is an html imagemap that contains the coordinates for each painting hardcoded into the html element. I found a cool javascript library that preserves the hotspots on the imagemap regardless of zoom level, so it doesn't matter how large your screen is (https://github.com/davidjbradshaw/image-map-resizer).
+Each room is an html imagemap with the paintings' coordinates embedded inside it. I found a cool javascript library that preserves the hotspots on the imagemap regardless of zoom level, so it doesn't matter how large your screen is (https://github.com/davidjbradshaw/image-map-resizer).
 
-The `painting_guess` view contains plenty of Python logic that compares a player's guess with the actual answer, records timestamps for each title clicked, and the current time a player submits their guess. If it's incorrect they just see an alert, but if they are correct, a css modal fades in with the correct answer. The text and image are passed in from the backend via a callback response instead of simply storing them in the html (any savvy web user can inspect the source and find such hardcoded strings).
+The `painting_guess` view contains plenty of Python logic that compares a player's guess with the actual answer, records timestamps for each title clicked, and the timestamp of a painting title submission. If it's incorrect they just see an alert, but if they are correct, a css modal fades in with the correct answer along with the number of guesses they've made (`Attempt.objects.filter(user=request.user).count()`. The text and image are passed in from the backend via a callback response instead of simply storing them in the html (any savvy web user can inspect the source and find such hardcoded strings).
 
 I don't know what else to put in this readme but I'll probably update it as I think of other things.
 
