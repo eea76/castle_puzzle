@@ -11,7 +11,7 @@ From a certain vantage point the player eventually glimpses a large clock on the
 ----
 
 #### Technical details
-This app was built in Django. In order for multiple people to play at once I implemented its user authentication system so that players must login and explore the rooms. For each painting a user views, a UserPainting object is created in the database. Only the paintings that a player views are available as possible options for the unnamed painting's title. The more paintings they discover, the more that are available as a title.
+This app was built in Django, which is an MVC web framework written in Python. It's robust and relatively easy to learn! In order for multiple people to play at once I implemented its user authentication system so that players must login and explore the rooms. For each painting a user views, a UserPainting object is created in the database. Only the paintings that a player views are available as possible options for the unnamed painting's title. The more paintings they discover, the more that are available as choices.
 
 In Django terms, this means getting all existing UserPainting objects and filtering to only those associated with the currently logged-in user:
 `viewed_paintings = UserPainting.objects.filter(user=request.user)`
