@@ -67,7 +67,7 @@ $(document).ready(function() {
     // (this makes a call to django and deletes all
     // viewed paintings associated with the logged-in user)
     $('.start-over').on('click', function() {
-        window.location = '/unnamed';
+        window.location = '/painting/unnamed';
     })
 
     // submits chosen title
