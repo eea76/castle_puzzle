@@ -37,7 +37,6 @@ class PageLoad(models.Model):
 class Room(models.Model):
     room = models.CharField(max_length=1000, null=True, blank=True)
     image = models.CharField(max_length=1000, null=True, blank=True)
-    room_id = models.CharField(max_length=1000, null=True, blank=True)
 
     def __str__(self):
         return self.room
@@ -64,7 +63,6 @@ class Painting(models.Model):
 class PaintingPerRoom(models.Model):
     coordinates = models.CharField(max_length=100, null=True, blank=True)
     painting = models.ForeignKey(Painting, null=True, on_delete=models.CASCADE)
-    href = models.CharField(max_length=100, null=True, blank=True)
     room = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
 
     def __str__(self):

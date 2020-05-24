@@ -82,7 +82,7 @@ $(document).ready(function() {
         $.ajax({
             type: 'post',
             data: JSON.stringify(message),
-            url: 'painting_guess',
+            url: '/painting_guess',
             success: function(response) {
                 response = JSON.parse(response)
                 if (response.correct) {

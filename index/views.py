@@ -45,25 +45,25 @@ def adventure(request):
 
 @login_required
 def painting(request, painting_name):
-    painting = Painting.objects.get(name=painting_name)
-    obj = {
-        'painting': painting
-    }
 
-    return render(request, 'painting.html', obj)
+    if painting_name != 'unnamed':
+        painting = Painting.objects.get(name=painting_name)
+        obj = {
+            'painting': painting
+        }
 
+        return render(request, 'painting.html', obj)
 
-@login_required
-def unnamed(request):
-    viewed_paintings = UserPainting.objects.filter(user=request.user)
-    viewed_paintings_count = len(viewed_paintings)
+    else:
+        viewed_paintings = UserPainting.objects.filter(user=request.user)
+        viewed_paintings_count = len(viewed_paintings)
 
-    obj = {
-        'viewed_paintings': viewed_paintings,
-        'viewed_paintings_count': viewed_paintings_count,
-    }
+        obj = {
+            'viewed_paintings': viewed_paintings,
+            'viewed_paintings_count': viewed_paintings_count,
+        }
 
-    return render(request, 'unnamed.html', obj)
+        return render(request, 'unnamed.html', obj)
 
 
 #######
