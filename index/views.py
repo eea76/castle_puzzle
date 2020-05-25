@@ -7,6 +7,9 @@ from django.contrib.auth.forms import UserCreationForm
 import json
 from datetime import datetime
 from pytz import timezone
+import sendgrid
+from decouple import config
+from sendgrid.helpers.mail import *
 from django.utils import timezone as django_timezone
 from .models import *
 
@@ -78,6 +81,9 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+
+            admin = User.objects.get(username='elon')
+            send_email(admin.email, 'New user on castle escape room!!', str(user.username) + ' registered', 'elon.arbiture@gmail.com')
             return redirect('/')
     else:
         form = UserCreationForm()
@@ -87,6 +93,17 @@ def signup(request):
     }
 
     return render(request, 'registration/signup.html', obj)
+
+
+# sendgrid
+def send_email(email, subject, message, from_email="elon.arbiture@gmail.com"):
+    apikey = config('SENDGRID_API_KEY')
+    sg = sendgrid.SendGridAPIClient(apikey=apikey)
+    from_email = Email(from_email)
+    to_email = Email(email)
+    content = Content("text/html", message)
+    mail = Mail(from_email, subject, to_email, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
 
 
 @csrf_exempt
