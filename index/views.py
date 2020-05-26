@@ -1,16 +1,19 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404, redirect
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import UserCreationForm
 import json
 from datetime import datetime
 from pytz import timezone
+
 import sendgrid
 from decouple import config
 from sendgrid.helpers.mail import *
+
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone as django_timezone
+
 from .models import *
 
 
@@ -83,7 +86,7 @@ def signup(request):
             login(request, user)
 
             admin = User.objects.get(username='elon')
-            send_email(admin.email, 'New user on castle escape room!!', str(user.username) + ' registered', 'elon.arbiture@gmail.com')
+            send_email(admin.email, 'New user on castle escape room!!', f'{str(user.username)} registered', 'elon.arbiture@gmail.com')
             return redirect('/')
     else:
         form = UserCreationForm()

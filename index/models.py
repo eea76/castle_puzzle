@@ -1,11 +1,10 @@
 from __future__ import unicode_literals
-from django.contrib.auth.models import User
-from django.db import models
-from django.utils import timezone as django_timezone
-
 from datetime import datetime
 from pytz import timezone
 
+from django.contrib.auth.models import User
+from django.db import models
+from django.utils import timezone as django_timezone
 
 
 class Browser(models.Model):
@@ -66,7 +65,9 @@ class PaintingPerRoom(models.Model):
     room = models.ForeignKey(Room, null=True, on_delete=models.CASCADE)
 
     def __str__(self):
-        return str(self.painting) + ' (' + str(self.room) + ')'
+        painting = str(self.painting)
+        room = str(self.room)
+        return f'{painting} ({room})'
 
 
 class UserPainting(models.Model):
