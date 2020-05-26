@@ -86,7 +86,8 @@ def signup(request):
             login(request, user)
 
             admin = User.objects.get(username='elon')
-            send_email(admin.email, 'New user on castle escape room!!', f'{str(user.username)} registered', 'elon.arbiture@gmail.com')
+            username = str(user.username)
+            send_email(admin.email, 'New user on castle escape room!!', f'{username} registered', 'elon.arbiture@gmail.com')
             return redirect('/')
     else:
         form = UserCreationForm()
