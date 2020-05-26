@@ -85,9 +85,11 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
 
-            admin = User.objects.get(username='elon')
+            admin_name = config('admin')
+            admin = User.objects.get(username=admin_name)
+            admin_email = config('admin_email')
             username = str(user.username)
-            send_email(admin.email, 'New user on castle escape room!!', f'{username} registered', 'elon.arbiture@gmail.com')
+            send_email(admin.email, 'New user on castle escape room!!', f'{username} registered', admin_email)
             return redirect('/')
     else:
         form = UserCreationForm()
@@ -100,7 +102,7 @@ def signup(request):
 
 
 # sendgrid
-def send_email(email, subject, message, from_email="elon.arbiture@gmail.com"):
+def send_email(email, subject, message, from_email):
     apikey = config('SENDGRID_API_KEY')
     sg = sendgrid.SendGridAPIClient(apikey=apikey)
     from_email = Email(from_email)
