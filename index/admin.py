@@ -2,6 +2,7 @@ from django.contrib import admin
 
 from index.models import *
 
+
 class UserPaintingAdmin(admin.ModelAdmin):
     list_filter = ('user', )
 
@@ -13,6 +14,7 @@ class PageLoadAdmin(admin.ModelAdmin):
 
 class AttemptAdmin(admin.ModelAdmin):
     list_filter = ('user', )
+
 
 admin.site.register(Painting)
 admin.site.register(Room)
