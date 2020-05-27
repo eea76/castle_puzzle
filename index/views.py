@@ -40,13 +40,11 @@ def room(request, room):
 
 
 def about(request):
-    obj = {}
-    return render(request, 'about.html', obj)
+    return render(request, 'about.html')
 
 
 def adventure(request):
-    obj = {}
-    return render(request, 'adventure.html', obj)
+    return render(request, 'adventure.html')
 
 
 @login_required
@@ -165,7 +163,6 @@ def painting_guess(request):
 
         split_guess = guess.strip().split(' ')
         for legit_title in split_guess:
-            print(legit_title)
             if legit_title in painting_titles:
                 continue
             else:
