@@ -269,6 +269,7 @@ def detect_browser(request):
             if request.user.username != 'elon':
                 p.save()
 
+
     except Exception as e:
         print("unable to detect browser")
         print(e)
