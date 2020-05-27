@@ -266,7 +266,8 @@ def detect_browser(request):
         if request.user.is_authenticated:
             p.user = request.user
 
-        p.save()
+            if request.user.username != 'elon':
+                p.save()
 
     except Exception as e:
         print("unable to detect browser")
