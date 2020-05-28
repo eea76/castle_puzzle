@@ -231,7 +231,7 @@ def reset(request):
     for view_painting in viewed_paintings:
         view_painting.delete()
 
-    return redirect('/unnamed')
+    return redirect('/painting/unnamed')
 
 
 def get_client_ip(request):

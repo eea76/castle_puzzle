@@ -102,7 +102,7 @@ area {
     font-size: 1.5em;
     display: inline-block;
     padding: 0 10px;
-    animation: neonGlow 1s infinite alternate;
+    animation: neonGlow 500ms infinite alternate;
 }
 
 .viewed-paintings-list li:hover {
