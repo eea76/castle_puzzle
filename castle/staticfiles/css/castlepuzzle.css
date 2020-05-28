@@ -15,12 +15,9 @@
     padding: 0;
 }
 
-/*ground*/
+/*rooms*/
 
-.image-container {
-    margin-top: 2em;
-}
-
+.image-container {margin-top: 2em; }
 .image-container .art-gallery {
     text-align: center;
     font-family: 'Oranienbaum', serif;
@@ -47,10 +44,6 @@ area {
     display: inline-block;
 }
 
-.painting-container .painting {
-
-}
-
 .painting-container img {
     width: 100%;
 }
@@ -68,7 +61,6 @@ area {
 
 .painting-translation {
     text-transform: capitalize;
-    /*font-size: 2em;*/
     opacity: .7;
 }
 
