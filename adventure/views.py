@@ -10,7 +10,7 @@ def index(request):
         'doors': doors,
     }
 
-    return render(request, 'index.html', obj)
+    return render(request, 'doors.html', obj)
 
 
 
