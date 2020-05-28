@@ -4,11 +4,12 @@
 
 
 <div class="adventure-container">
+
     {% if not chamber.initial_chamber %}
     <a class="back" href="{% url 'chamber' previous_chamber.id %}">&larr; {{previous_option.no_view_count}}</a>
     {% endif %}
 
-    <h1>{{chamber.heading}}</h1>
+    <h1>{{chamber.heading|safe}}</h1>
 
     <hr>
 
