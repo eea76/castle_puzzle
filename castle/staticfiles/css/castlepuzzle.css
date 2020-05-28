@@ -102,10 +102,36 @@ area {
     font-size: 1.5em;
     display: inline-block;
     padding: 0 10px;
+    animation: neonGlow 1s infinite alternate;
 }
 
 .viewed-paintings-list li:hover {
     opacity: .7;
+}
+
+@keyframes neonGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(196, 122, 26, 1),
+                0 0 20px rgba(196, 122, 26, 1),
+                0 0 22px rgba(196, 122, 26, 1),
+                0 0 40px rgba(196, 122, 26, 1),
+                0 0 60px rgba(196, 122, 26, 1),
+                0 0 80px rgba(196, 122, 26, 1),
+                0 0 100px rgba(196, 122, 26, 1),
+                0 0 140px rgba(196, 122, 26, 1),
+                0 0 200px rgba(196, 122, 26, 1);
+    }
+
+    100% {
+        text-shadow: 0 0 2px rgba(196, 122, 26, 1),
+                0 0 8px rgba(196, 122, 26, 1),
+                0 0 10px rgba(196, 122, 26, 1),
+                0 0 20px rgba(196, 122, 26, 1),
+                0 0 30px rgba(196, 122, 26, 1),
+                0 0 40px rgba(196, 122, 26, 1),
+                0 0 50px rgba(196, 122, 26, 1),
+                0 0 80px rgba(196, 122, 26, 1);
+    }
 }
 
 .submit-title {
