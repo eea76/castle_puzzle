@@ -1,0 +1,33 @@
+.adventure-container {
+    margin: 80px auto;
+    max-width: 600px;
+}
+
+.adventure-container h1, a {
+    font-size: 2em;
+}
+
+.adventure-container ul {
+    list-style-type: none;
+    font-size: 1.5em;
+}
+
+.adventure-container li {
+    margin: 1em 0;
+}
+
+.adventure-container li a {
+    padding: 0;
+    font-size: 1em;
+}
+
+.adventure-container .start-over {
+    padding: 0;
+}
+
+.adventure-container .back {
+    font-size: 1em;
+    padding: 0;
+    padding-bottom: 20px;
+    opacity: .8;
+}

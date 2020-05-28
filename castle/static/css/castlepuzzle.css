@@ -1,38 +1,3 @@
-/*global*/
-
-/*.container {
-    width: 1366px;
-    max-width: 1366px;
-}*/
-
-body {
-    background: #000;
-    color: #acacac;
-}
-
-a {
-    color: #c47a1a;
-    text-decoration: none;
-    font-size: 1em;
-    display: inline-block;
-    padding: 0 20px;
-}
-
-a:hover {
-    color: #9b631b;
-}
-
-hr {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  border-width: 0;
-  border-top: 1px solid #E1E1E1;
-}
-
-button {
-    color: #c4c4c4;
-}
-
 .about {
     padding: 0;
     opacity: .6;

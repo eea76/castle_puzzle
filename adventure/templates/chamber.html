@@ -1,0 +1,29 @@
+{% extends "adventurebase.html" %}
+{% load static %}
+{% block content %}
+
+
+<div class="adventure-container">
+    {% if not chamber.initial_chamber %}
+    <a class="back" href="{% url 'chamber' previous_chamber.id %}">&larr; {{previous_option.no_view_count}}</a>
+    {% endif %}
+
+    <h1>{{chamber.heading}}</h1>
+
+    <hr>
+
+    <ul>
+        {% for option in options %}
+        <li><a href="{{option.next_chamber.id}}">{{option.text}}</a></li>
+
+        <hr style="opacity:.3;">
+        {% endfor %}
+    </ul>
+
+    {% if end %}
+    <a class="start-over" href="/adventure">Start Over</a>
+    {% endif %}
+</div>
+
+
+{% endblock %}

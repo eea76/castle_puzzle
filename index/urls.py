@@ -14,5 +14,4 @@ urlpatterns = [
     path('painting_guess', views.painting_guess, name='painting_guess'),
     path('reset', views.reset, name='reset'),
     path('detect_browser/', views.detect_browser, name='detect_browser'),
-    path('adventure/', views.adventure, name='adventure'),
 ]

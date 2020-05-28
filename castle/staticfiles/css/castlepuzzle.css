@@ -1,0 +1,242 @@
+.about {
+    padding: 0;
+    opacity: .6;
+    float: right;
+}
+
+
+/*login*/
+.login-container {
+    width: 500px;
+    margin: 5rem auto;
+}
+
+.login-container a {
+    padding: 0;
+}
+
+/*ground*/
+
+.image-container {
+    margin-top: 2em;
+}
+
+.image-container .art-gallery {
+    text-align: center;
+    font-family: 'Oranienbaum', serif;
+    font-size: 2em;
+}
+
+.image-container .art-gallery img {
+    width: 100%;
+}
+
+area {
+    cursor: default;
+}
+
+
+
+/*paintings*/
+
+.painting-container {
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 2em;
+    display: inline-block;
+}
+
+.painting-container .painting {
+
+}
+
+.painting-container img {
+    width: 100%;
+}
+
+.painting-name {
+    text-transform: uppercase;
+    font-family: 'Oranienbaum', serif;
+}
+
+.unnamed-painting.painting-name h1 {
+    margin-bottom: 0;
+    font-size: 2em;
+    color: #000;
+}
+
+.painting-translation {
+    text-transform: capitalize;
+    /*font-size: 2em;*/
+    opacity: .7;
+}
+
+.titles-container {
+    width: 400px;
+    float: right;
+    margin-top: 2em;
+    text-align: center;
+
+}
+
+/*unnamed painting*/
+
+.unnamed-painting.painting-name {
+    background: #fdefc6;
+    min-height: 36px;
+    text-align: center;
+    padding: 0 15px;
+    border: 3px solid #b5946b;
+}
+
+
+.viewed-paintings-list {
+    list-style-type: none;
+    margin: 20px 0;
+}
+
+.viewed-paintings-list li {
+    cursor: pointer;
+    font-family: 'Oranienbaum', serif;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.viewed-paintings-list li:hover {
+    opacity: .7;
+}
+
+.submit-title {
+    display: none;
+    margin: 15px 0;
+}
+
+.submit-title #submitted-title {
+    font-size: 1.5em;
+    font-family: 'Oranienbaum', serif;
+}
+
+.submit-title .buttons {
+    margin: 15px 0;
+    color: #000;
+}
+
+.submit-title .buttons .submit-button {
+    display: inline-block;
+    padding: 3px 15px;
+    border-radius: 5px;
+    margin: 0 10px;
+    width: 140px;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.submit-title .buttons .submit {
+    background: #d1ffd1;
+}
+
+.submit-title .buttons .submit:hover {
+    background: #b5e6b5;
+}
+
+.submit-title .buttons .start-over {
+    background: #fddfa5;
+}
+
+.submit-title .buttons .start-over:hover {
+    background: #ffcd6e;
+}
+
+.reset-button {
+    margin: 5rem auto 0;
+    transition: 200ms all;
+    width: 180px;
+}
+
+.reset-button a {
+    color: #c4c4c4;
+}
+
+
+.reset-button .reset {
+    margin: 0 auto;
+    display: block;
+    padding: 10px 0;
+    text-align: center;
+    border: 1px solid #bbb;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 11px;
+    letter-spacing: .1rem;
+    font-weight: 600;
+}
+
+
+
+/*success*/
+
+.results-modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    border-radius: 5px;
+    padding: 30px;
+    box-shadow:
+        inset 0 -3em 3em rgba(0,0,0,0.1),
+            0 0  0 2px rgb(255,255,255),
+            0.3em 0.3em 1em rgba(0,0,0,0.3);
+}
+
+.results-modal .image-container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.results-modal .image-container img {
+    width: 100%;
+}
+
+.results-modal .title-text h1 {
+    font-family: 'Oranienbaum', serif;
+    color: black;
+}
+
+/*about*/
+
+.about-container {
+    margin-top: 3em;
+}
+
+.about-container a {
+    padding: 0;
+}
+
+@media (max-width: 1000px) {
+    .titles-container {
+        width: 300px;
+    }
+}
+
+@media (max-width: 882px) {
+    .painting-container {
+        width: 100%;
+    }
+
+    .titles-container {
+        width: 100%;
+    }
+}
+
+@media (max-width: 612px) {
+    .login-container,
+    .about-container {
+        width: 100%;
+        font-size: 20px;
+    }
+}
