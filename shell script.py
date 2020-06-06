@@ -1,4 +1,4 @@
-# on new machines run this in the django shell so the database is populated
+# on new machines run this in the django shell so the local database is populated
 
 from index.models import *
 
