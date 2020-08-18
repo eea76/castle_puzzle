@@ -43,10 +43,6 @@ def about(request):
     return render(request, 'about.html')
 
 
-def adventure(request):
-    return render(request, 'adventure.html')
-
-
 @login_required
 def painting(request, painting_name):
 
