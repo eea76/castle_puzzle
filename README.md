@@ -24,5 +24,7 @@ Each room is an html imagemap with the paintings' coordinates embedded inside it
 
 The `painting_guess` view contains plenty of Python logic that compares a player's guess with the actual answer, records timestamps for each title clicked, and the timestamp of a painting title submission. If it's incorrect they just see an alert, but if they are correct, a css modal fades in with the correct answer along with the number of guesses they've made (`Attempt.objects.filter(user=request.user).count()`. The text and image are passed in from the backend via a callback response instead of simply storing them in the html (any savvy web user can inspect the source and find such hardcoded strings).
 
+https://programminghead.com/Projects/find-coordinates-of-image-online.html
+
 I don't know what else to put in this readme but I'll probably update it as I think of other things.
 

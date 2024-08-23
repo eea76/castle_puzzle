@@ -2,9 +2,7 @@ import json
 from datetime import datetime
 from pytz import timezone
 
-import sendgrid
 from decouple import config
-from sendgrid.helpers.mail import *
 
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
@@ -15,6 +13,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone as django_timezone
 
 from .models import *
+
+#https://programminghead.com/Projects/find-coordinates-of-image-online.html
 
 
 def index(request):
@@ -30,6 +30,8 @@ def room(request, room):
     paintings = PaintingPerRoom.objects.filter(room=room)
     links = Link.objects.filter(room=room)
 
+
+
     obj = {
         'room': room,
         'paintings': paintings,
@@ -41,6 +43,9 @@ def room(request, room):
 
 def about(request):
     return render(request, 'about.html')
+
+def hint(request):
+    return render(request, 'hint.html')
 
 
 @login_required
@@ -79,11 +84,7 @@ def signup(request):
             user = authenticate(username=username, password=raw_password)
             login(request, user)
 
-            admin_name = config('admin')
-            admin = User.objects.get(username=admin_name)
-            admin_email = config('admin_email')
-            username = str(user.username)
-            send_email(admin.email, 'New user on castle escape room!!', f'{username} registered', admin_email)
+
             return redirect('/')
     else:
         form = UserCreationForm()
@@ -94,16 +95,6 @@ def signup(request):
 
     return render(request, 'registration/signup.html', obj)
 
-
-# sendgrid
-def send_email(email, subject, message, from_email):
-    apikey = config('SENDGRID_API_KEY')
-    sg = sendgrid.SendGridAPIClient(apikey=apikey)
-    from_email = Email(from_email)
-    to_email = Email(email)
-    content = Content("text/html", message)
-    mail = Mail(from_email, subject, to_email, content)
-    response = sg.client.mail.send.post(request_body=mail.get())
 
 
 @csrf_exempt

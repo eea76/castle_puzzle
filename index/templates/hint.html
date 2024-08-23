@@ -1,0 +1,36 @@
+{% extends 'castlebase.html' %}
+{% load static %}
+{% block content %}
+
+<div class="hints-container">
+    <div class="row">
+        <p>Here are a few hints to help you out if you are stuck. Please don't reveal any more than you think you need!</p>
+    <div class="row">
+        <div class="hint-container">
+            <p class="hint" id="hint1">Hint 1:</p>
+            <p class="hint-text" id="hint1-text">Is there anything in this chamber you can interact with?</p>
+        </div>
+
+        <div class="hint-container">
+            <p class="hint" id="hint2">Hint 2:</p>
+            <p class="hint-text" id="hint2-text">Does every painting have a title?</p>
+        </div>
+
+        <div class="hint-container">
+            <p class="hint" id="hint3">Hint 3:</p>
+            <p class="hint-text" id="hint3-text">What time is it?</p>
+        </div>
+
+        <div class="hint-container">
+            <p class="hint" id="hint4">Hint 4:</p>
+            <p class="hint-text" id="hint4-text">Have you closely inspected the names of each of the paintings?</p>
+        </div>
+    </div>
+
+    <div class="row">
+
+        <a href="/">Back</a>
+    </div>
+</div>
+
+{% endblock %}

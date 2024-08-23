@@ -1,6 +1,14 @@
+.navigation {
+    padding: 0;
+    padding-right: 20px;
+    float: left;
+    font-size: 20px;
+}
+
 .about {
     padding: 0;
-    opacity: .6;
+    padding-left: 10px;
+    opacity: .3;
     float: right;
 }
 
@@ -224,6 +232,30 @@ area {
     font-family: 'Oranienbaum', serif;
     color: black;
 }
+
+/*hint*/
+
+.hints-container {
+    margin-top: 3em;
+}
+
+.hints-container a {
+    padding: 0;
+}
+
+.hints-container p {
+    margin-bottom: .5rem;
+}
+
+.hint-container {
+    margin-bottom: 30px;
+}
+
+.hint-text {
+    background-color: rgb(172, 172, 172);
+    display: inline;
+}
+
 
 /*about*/
 

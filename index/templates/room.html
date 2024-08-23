@@ -3,6 +3,11 @@
 {% block content %}
 
 
+{% for link in links %}
+    <a class="navigation" href="/room/{{link.href}}">{{link.text}}</a>
+{% endfor %}
+
+<a class="about" href="/hint">need a hint?</a>
 <a class="about" href="/about">about</a>
 <div class="image-container">
 
@@ -20,11 +25,6 @@
             <img src="{{room.image}}" usemap="#{{room.room}}">
         </div>
 
-        <hr>
-
-        {% for link in links %}
-        <a href="/room/{{link.href}}">{{link.text}}</a>
-        {% endfor %}
     </div>
 
 </div>

@@ -15,10 +15,13 @@ class PageLoadAdmin(admin.ModelAdmin):
 class AttemptAdmin(admin.ModelAdmin):
     list_filter = ('user', )
 
+class PaintingPerRoomAdmin(admin.ModelAdmin):
+    list_filter = ('room',)
+
 
 admin.site.register(Painting)
 admin.site.register(Room)
-admin.site.register(PaintingPerRoom)
+admin.site.register(PaintingPerRoom, PaintingPerRoomAdmin)
 admin.site.register(UserPainting, UserPaintingAdmin)
 admin.site.register(Link)
 admin.site.register(Attempt, AttemptAdmin)

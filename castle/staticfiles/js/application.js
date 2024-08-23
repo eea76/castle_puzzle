@@ -70,6 +70,10 @@ $(document).ready(function() {
         window.location = '/painting/unnamed';
     })
 
+    $('.hint-text').on('click', function() {
+        $(this).css('background-color', 'black');
+    })
+
     // submits chosen title
     // alert if incorrect, show success modal if correct
     $('.submit').on('click', function() {
